@@ -13,7 +13,7 @@ class ProfilePage extends DefaultPage {
             phones: 'a.js-click-security-recovery',
             name: 'input[name="FirstName"]',
 
-            newPhonePage: '[data-test-id=expansion-item-header-text]'
+            newPhonePage: 'div [data-test-id=expansion-item-header-text]'
 		}
     }
 
@@ -30,7 +30,7 @@ class ProfilePage extends DefaultPage {
 
     findSelector() {
         this.page.waitForEnabled(this.locators.timesSelector);
-    }
+	}
 
     clickMyPhones() {
 		this.page.waitForVisible(this.locators.phones);

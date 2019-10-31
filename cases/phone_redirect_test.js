@@ -1,5 +1,6 @@
 import account from '../steps/account';
 import profile from '../steps/profile';
+import phone from '../steps/phone';
 // import folders from '../steps/sidebar/folders';
 // import letters from '../steps/letters/index';
 import {foldersHref} from '../store/index';
@@ -16,10 +17,12 @@ describe('test1', () => {
         profile.openUserinfo();
     });
 
-	it('Снять галку Определять автоматически в поле Ваш часовой пояс', () => {
-        profile.changeCheckBox();
+    it('При нажатии на "Мои телефоны" происходит редирек', () => {
+        profile.clickMyPhones();
+        phone.waitForPhone();
+        phone.checkOpenPhoneUrl();
+        // profile.checkOpenPhoneUrl();
     });
-    
 
     // it('При попытке сохранить профиль с пустыми данными показываются сообщения об ошибке', () => {
     //     profile.inputEmptyData();

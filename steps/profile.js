@@ -25,12 +25,8 @@ class ProfileSteps extends DefaultSteps {
     }
     
     waitForProfile() {
-		this.page.waitForContainer();
+		  this.page.waitForContainer();
     }
-    
-    waitForPhoneUrl() {
-		this.page.waitForUrl('https://account.mail.ru/security/recovery');
-	}
 }
 
 export default new ProfileSteps();
