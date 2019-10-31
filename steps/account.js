@@ -20,6 +20,10 @@ class AccountSteps extends DefaultSteps {
 		this.page.waitForUrl('https://e.mail.ru/inbox/?afterReload=1');
 	}
 
+	openCloud() {
+		this.page.waitForContainer()
+	}
+
 	waitForAccount() {
 		this.page.waitForContainer();
 	}
