@@ -11,6 +11,8 @@ class AccountPage extends DefaultPage {
 			password: 'input[name="Password"]',
 			nextButton: '[data-test-id="next-button"]',
 			submitButton: '[data-test-id="submit-button"]',
+			recoveryButton: '[data-test-id="remind"]',
+			signupButton: '[data-test-id="signup-link"]'
 		}
 	}
 
@@ -36,6 +38,15 @@ class AccountPage extends DefaultPage {
 		this.page.click(this.locators.submitButton)
 	}
 
+	recover() {
+		this.page.waitForVisible(this.locators.recoveryButton);
+		this.page.click(this.locators.recoveryButton);
+	}
+
+	signup() {
+		this.page.waitForVisible(this.locators.signupButton);
+		this.page.click(this.locators.signupButton);
+	}
 }
 
 export default new AccountPage();
