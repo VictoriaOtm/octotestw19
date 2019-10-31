@@ -12,19 +12,19 @@ describe('check: big text in theme', () => {
     
 	// it('Написать текст в поле "Тема вопроса", а затем удалить его. Дождаться появления соответствующей категории', () => {
     //     ask.open('https://otvet.mail.ru/ask');
-    //     ask.fillAndCleanQuestionText();
-    //     ask.waitForEmptyThemeAlert();
+    //     ask.fillAndClearQuestionText();
+    //     ask.waitForAlert("Поле «Тема вопроса» обязательно для заполнения.");
     // });
 
-    // it('Проверить кнопку войти', () => {
+    // it('Упомянуть любую страну в поле "Тема вопроса" и дождаться появления соответствующей категории', () => {
     //     ask.open('https://otvet.mail.ru/ask');
-    //     ask.pressLoginButton();
-    //     ask.waitForLoginForm();
+    //     ask.writeQuestionText('Россия');
+    //     ask.waitForAlert("");
     // });
 
 	it('Написать длинный текст ( > 120 символов) в поле "Тема вопроса" и дождаться появления соответствующей категории', () => {
         ask.open('https://otvet.mail.ru/ask');
         ask.writeQuestionText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-        ask.waitForBigThemeAlert();
+        ask.waitForAlert("Поле «Тема вопроса» не может быть больше 120 символов.");
     });
 });

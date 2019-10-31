@@ -10,11 +10,11 @@ class AskSteps extends DefaultSteps {
         this.page.fillQuestionText(text);
     }
 
-    waitForBigThemeAlert() {
-        this.page.waitForBigThemeAlert();
+    waitForAlert(text) {
+        this.page.waitForBigThemeAlert(text);
     }
     
-    fillAndCleanQuestionText() {
+    fillAndClearQuestionText() {
         this.page.fillAndCleanQuestionText();
     }
 
