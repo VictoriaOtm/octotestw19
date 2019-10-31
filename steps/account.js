@@ -1,9 +1,15 @@
 import DefaultSteps from './default';
 import page from '../pages/account';
 
-class MainPageSteps extends DefaultSteps {
+class AccountSteps extends DefaultSteps {
 	constructor() {
 		super(page);
+	}
+
+	auth() {
+		this.open('https://account.mail.ru');
+		this.waitForAccount();
+		this.login();
 	}
 
 	login() {
@@ -13,6 +19,10 @@ class MainPageSteps extends DefaultSteps {
 		this.page.submit();
 		this.page.waitForUrl('https://e.mail.ru/inbox/?afterReload=1');
 	}
+
+	waitForAccount() {
+		this.page.waitForContainer();
+	}
 }
 
-export default new MainPageSteps();
+export default new AccountSteps();

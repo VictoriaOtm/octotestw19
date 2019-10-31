@@ -2,19 +2,13 @@ import DefaultPage from '../default';
 
 class LettersPage extends DefaultPage {
 	constructor() {
-		super('letters')
+		super('letters', '.dataset-letters')
 	}
 
 	get locators () {
-		const container = '.dataset-letters';
-
 		return {
-			container
+			container: this.container
 		}
-	}
-
-	waitForDatasetLetters() {
-		this.page.waitForVisible(this.locators.container);
 	}
 }
 

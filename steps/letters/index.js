@@ -7,7 +7,7 @@ class LettersSteps extends DefaultSteps {
 	}
 
 	waitForList() {
-		this.page.waitForDatasetLetters();
+		this.page.waitForContainer();
 	}
 }
 

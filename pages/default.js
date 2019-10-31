@@ -1,6 +1,7 @@
 export default class DefaultPage {
-	constructor(name) {
+	constructor(name, container) {
 		this.name = name;
+		this.container = container;
 	}
 
 	get locators() {
@@ -15,6 +16,10 @@ export default class DefaultPage {
 
 	get page() {
 		return browser;
+	}
+
+	waitForContainer() {
+		this.page.waitForVisible(this.container);
 	}
 
 	waitForUrl(value, timeout, revert) {

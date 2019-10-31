@@ -1,8 +1,8 @@
 import DefaultPage from './default';
 
-class MainPage extends DefaultPage {
+class AccountPage extends DefaultPage {
 	constructor() {
-		super('account')
+		super('account', '[data-test-id=login-app-ready]')
 	}
 
 	get locators() {
@@ -38,4 +38,4 @@ class MainPage extends DefaultPage {
 
 }
 
-export default new MainPage();
+export default new AccountPage();
