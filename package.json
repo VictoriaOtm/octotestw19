@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "wdio --baseUrl='https://octavius.mail.ru'",
-    "report": "mkdir -p ./cache/allure-report && allure generate -c -o ./cache/allure-report ./cache/allure-results && allure open ./cache/allure-report"
+    "report": "mkdir -p ./cache/allure-report && allure generate -c -o ./cache/allure-report ./cache/allure-results && allure open ./cache/allure-report",
+    "test_zoom": "wdio --baseUrl='https://cloud.mail.ru'"
   },
   "author": "",
   "license": "ISC",
