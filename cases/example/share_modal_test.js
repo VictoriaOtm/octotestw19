@@ -9,11 +9,7 @@ describe('test id', () => {
 		viewer.openCloud();
 	});
 
-	it('Проверка добавления в избранное', () => {
-		viewer.checkFavourite();
-	});
-
-	it('Проверка открытия нижнего бара', () => {
-		viewer.expandDownBar();
+	it('Проверка открытия модального окна предоставления доступа', () => {
+		viewer.checkShare();
 	});
 });

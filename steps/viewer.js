@@ -21,6 +21,11 @@ class ViewerSteps extends DefaultSteps {
 		this.page.waitForFavourite();
 		this.page.clickFavourite();
 	}
+
+	expandDownBar() {
+		this.page.expandDownBar();
+		this.page.waitForExpanded();
+	}
 }
 
 export default new ViewerSteps();

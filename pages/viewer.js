@@ -14,6 +14,9 @@ class ViewerPage extends DefaultPage {
 			shareModal: `${this.container} [data-qa-modal="publish"]`,
 			addToFavouritesButton: `${this.container} [data-name="addtofavorites"]`,
 			addToFavouritesButtonActive: `${this.container} [data-name="addtofavorites"] .ico_btn_favorites_active`,
+
+			downBar: `${this.container} .b-viewer__toolbox`,
+			downBarExpanded: `${this.container} .b-viewer__toolbox__content`,
 		};
 	}
 
@@ -45,6 +48,17 @@ class ViewerPage extends DefaultPage {
 		const { addToFavouritesButtonActive } = this.locators;
 		this.page.waitForVisible(addToFavouritesButtonActive);
 	};
+
+	expandDownBar() {
+		const { downBar } = this.locators;
+		this.page.waitForVisible(downBar);
+		this.page.click(downBar);
+	}
+
+	waitForExpanded() {
+		const { downBarExpanded } = this.locators;
+		this.page.waitForVisible(downBarExpanded);
+	}
 }
 
 export default new ViewerPage();
