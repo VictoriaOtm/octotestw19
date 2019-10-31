@@ -1,5 +1,6 @@
 import DefaultPage from './default';
 
+//EXAMPLE
 class AccountPage extends DefaultPage {
 	constructor() {
 		super('account', '[data-test-id=login-app-ready]')

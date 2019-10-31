@@ -1,6 +1,7 @@
 import DefaultSteps from './default';
 import page from '../pages/account';
 
+//EXAMPLE
 class AccountSteps extends DefaultSteps {
 	constructor() {
 		super(page);
