@@ -11,6 +11,7 @@ class ViewerPage extends DefaultPage {
             closeBannerButton: '[class^="Dialog__close"]',
             viewFormatButton: '#cloud_toolbars [data-group=view]',
             listViewButton: '#cloud_toolbars [data-name="list"]',
+            thumbViewButton: '#cloud_toolbars [data-name="thumbs"]',
             listView: '.datalist_default'
 			// login: 'input[name="Login"]',
 			// password: 'input[name="Password"]',
@@ -37,6 +38,11 @@ class ViewerPage extends DefaultPage {
     clickListViewButton () {
         this.page.waitForVisible(this.locators.listViewButton);
         this.page.click(this.locators.listViewButton);
+    }
+
+    clickThumbViewButton () {
+        this.page.waitForVisible(this.locators.thumbViewButton);
+        this.page.click(this.locators.thumbViewButton);
     }
 
     waitForListView () {

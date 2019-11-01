@@ -14,11 +14,15 @@ class ViewerSteps extends DefaultSteps {
         this.page.clickOpenViewButton();
     }
 
-    changeViewFormat() {
+    changeViewFormatToList() {
         this.page.clickDropdownFormatMenu();
         this.page.clickListViewButton();
         this.page.waitForListView();
+    }
 
+    changeViewFormatToThumb() {
+        this.page.clickDropdownFormatMenu();
+        this.page.clickThumbViewButton();
     }
 
 	waitForViewer() {

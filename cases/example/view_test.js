@@ -6,7 +6,7 @@ import view from '../../steps/view';
 describe('close_view', () => {
     before(() => {
         account.auth();
-        viewer.open('https://cloud.mail.ru/');
+        viewer.open('https://cloud.mail.ru/home/');
         viewer.closeBanner();
         viewer.waitForViewer();
     });
@@ -25,7 +25,8 @@ describe('close_view', () => {
     })
 
     it('Смена вида отображения файлов с плиток на список', () => {
-        viewer.changeViewFormat();
+        viewer.changeViewFormatToList();
+        viewer.changeViewFormatToThumb();
     })
 
     afterEach(() => {
