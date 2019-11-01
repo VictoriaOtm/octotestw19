@@ -1,7 +1,7 @@
-import account from '../steps/account';
-import folders from '../steps/sidebar/folders';
-import letters from '../steps/letters';
-import {foldersHref} from '../store';
+import account from '../../steps/account';
+import folders from '../../steps/sidebar/folders';
+import letters from '../../steps/letters';
+import {foldersHref} from '../../store';
 
 const FOLDER = foldersHref.sent;
 
