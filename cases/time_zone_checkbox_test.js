@@ -6,7 +6,6 @@ import {foldersHref} from '../store/index';
 
 const FOLDER = foldersHref.sent;
 
-// пример теста
 describe('test1', () => {
 	// используйте beforeEach хук для вызова account.auth(),
     // если вы тестируете НЕ авторизацию
@@ -18,10 +17,6 @@ describe('test1', () => {
 
 	it('Снять галку Определять автоматически в поле Ваш часовой пояс', () => {
         profile.changeCheckBox();
+        profile.getCheckBox();
     });
-    
-
-    // it('При попытке сохранить профиль с пустыми данными показываются сообщения об ошибке', () => {
-    //     profile.inputEmptyData();
-	// });
 });

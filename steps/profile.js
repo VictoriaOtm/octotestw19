@@ -8,7 +8,10 @@ class ProfileSteps extends DefaultSteps {
     
     changeCheckBox() {
         this.page.clickCheckBox();
-        this.page.findSelector();
+    }
+
+    getCheckBox() {
+        this.page.findTimeSelector();
     }
 
     clickMyPhones() {

@@ -28,7 +28,7 @@ class ProfilePage extends DefaultPage {
 		this.page.click(this.locators.checkbox);
     }
 
-    findSelector() {
+    findTimeSelector() {
         this.page.waitForEnabled(this.locators.timesSelector);
 	}
 
