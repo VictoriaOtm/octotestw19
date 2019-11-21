@@ -24,6 +24,9 @@ class ViewerSteps extends DefaultSteps {
 
 	expandDownBar() {
 		this.page.expandDownBar();
+	}
+
+	checkIfExpanded() {
 		this.page.waitForExpanded();
 	}
 }

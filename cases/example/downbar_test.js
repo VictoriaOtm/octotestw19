@@ -8,7 +8,8 @@ describe('test id', () => {
 		viewer.openCloud();
 	});
 
-	it('Проверка открытия модального окна предоставления доступа', () => {
-		viewer.checkShare();
+	it('Проверка открытия нижнего бара', () => {
+		viewer.expandDownBar();
+		viewer.checkIfExpanded();
 	});
 });

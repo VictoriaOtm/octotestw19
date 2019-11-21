@@ -8,7 +8,6 @@ class ViewerPage extends DefaultPage {
 	get locators() {
 		return {
 			container: this.container,
-			closeAdModal: `${this.container} [class^="Dialog__close"]`,
 			sliderItem: `${this.container} .b-slider__item`,
 			shareButton: `${this.container} [data-name="publish"]`,
 			shareModal: `${this.container} [data-qa-modal="publish"]`,
@@ -21,10 +20,8 @@ class ViewerPage extends DefaultPage {
 	}
 
 	waitForLoaded() {
-		const { sliderItem, closeAdModal } = this.locators;
+		const { sliderItem } = this.locators;
 		this.page.waitForVisible(sliderItem);
-		this.page.waitForVisible(closeAdModal);
-		this.page.click(closeAdModal);
 	}
 
 	clickShare() {
