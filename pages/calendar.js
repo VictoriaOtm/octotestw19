@@ -44,7 +44,8 @@ class Calendar extends DefaultPage {
             if (
                 ((attribute === "false") && (i === firstDay || i === firstDay + 1))
                 ||
-                (attribute === "true" && i !== firstDay && i !== firstDay + 1)) {
+                (attribute === "true" && i !== firstDay && i !== firstDay + 1)
+            ) {
                 this.page.click(element);
             }
         }
