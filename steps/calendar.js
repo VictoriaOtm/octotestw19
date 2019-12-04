@@ -13,17 +13,17 @@ class CalendarSteps extends DefaultSteps {
     changeWorkDayTime() {
         this.page.changeBegin();
         this.page.changeEnd();
-        this.page.save();
+        return this.page.save();
     }
 
     setWorkDays() {
         this.page.unClickItems();
-        this.page.save();
+        return this.page.save();
     }
 
     setCalendar() {
         this.page.selectCalendar();
-        this.page.save();
+        return this.page.save();
     }
 
 }

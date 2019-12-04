@@ -37,15 +37,16 @@ class Calendar extends DefaultPage {
         const firstDay = 1;
         const lastDay = 7;
 
-        for (let i = firstDay; i < lastDay + 1; i++) {
-            this.page.waitForVisible('[data-id="' + i + '"');
-        }
-
-        const thirdDay = 3;
-        const sixthDay = 6;
-
-        for (let i = thirdDay; i < sixthDay; i++) {
-            this.page.click('[data-id="' + i + '"');
+        for (let i = firstDay; i <= lastDay; i++) {
+            const element = 'span[name="' + i + '"]';
+            this.page.waitForVisible(element);
+            const attribute = this.page.getAttribute(element, 'data-checked');
+            if (
+                ((attribute === "false") && (i === firstDay || i === firstDay + 1))
+                ||
+                (attribute === "true" && i !== firstDay && i !== firstDay + 1)) {
+                this.page.click(element);
+            }
         }
     }
 
@@ -59,7 +60,15 @@ class Calendar extends DefaultPage {
     save() {
         this.page.waitForVisible(this.locators.saveButton);
         this.page.click(this.locators.saveButton);
-        this.page.waitForVisible(this.container);
+
+        try {
+            this.page.waitForVisible(this.container);
+        } catch(error) {
+            console.log(error);
+            return false;
+        }
+
+        return true;
     }
 
 }
