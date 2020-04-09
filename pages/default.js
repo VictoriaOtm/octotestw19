@@ -31,8 +31,14 @@ export default class DefaultPage {
 				// Возвращаем адрес без / на конце, который добавляет Selenium
 				// Было бы проще получить адрес через window.location.href,
 				// но если страница недоступна, то тест упадет, а нам нужно именно проверить переход
-				if (typeof value === 'string' && !value.endsWith('/')) {
-					url = url.replace(/\/$/, '');
+				if (typeof value === 'string') {
+					if (value.endsWith('*')) {
+						value = value.slice(0, -1);
+						url = url.slice(0, value.length);
+					}
+					if (!value.endsWith('/')) {
+						url = url.replace(/\/$/, '');
+					}
 				}
 
 				actual = value === url;
