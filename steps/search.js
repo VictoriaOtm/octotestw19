@@ -7,11 +7,17 @@ class SearchSteps extends DefaultSteps {
 	}
 
 	searchByGenre(genre) {
-        this.page.fillGenresForm(genre);
-        this.page.submit();
-        this.page.waitSearchResultItem();
+		this.page.fillGenresForm(genre);
+		this.page.submit();
+		this.page.waitSearchResultItem();
 	}
 
+	searchByName(name) {
+		this.page.fillName(name);
+		this.page.submit();
+		this.page.waitSearchResultItem();
+	}
 }
 
 export default new SearchSteps();
+

@@ -8,6 +8,7 @@ class SearchPage extends DefaultPage {
 	get locators() {
 		return {
 			genres: '#js-genre-input',
+			name: '#js-search-input',
 			submitButton: '#js-search-params',
 			searchResult: '.search-results__film',
 		}
@@ -19,14 +20,20 @@ class SearchPage extends DefaultPage {
 		this.page.setValue(this.locators.genres, genre);
 	}
 
+	fillName(name) {
+		this.page.waitForVisible(this.locators.name);
+		this.page.click(this.locators.name);
+		this.page.setValue(this.locators.name, name);
+	}
+
 	submit() {
 		this.page.waitForVisible(this.locators.submitButton);
 		this.page.click(this.locators.submitButton)
 	}
-
-    waitSearchResultItem() {
-        this.page.waitForVisible(this.locators.searchResult);
-    }
+	
+	waitSearchResultItem() {
+		this.page.waitForVisible(this.locators.searchResult);
+	}
 }
 
 export default new SearchPage();
