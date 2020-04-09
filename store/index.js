@@ -1,5 +1,8 @@
+export const baseUrl = 'https://fwork.live/';
+
 export const foldersHref = {
-	inbox: '/inbox/',
-	sent: '/sent/',
-	drafts: '/drafts/',
+	login: 'login',
+	signup: 'signup',
+	main: 'dashboard',
+	search_jobs: 'search?type=jobs',
 };

@@ -1,3 +1,4 @@
+// Наследуются все остальные Page. Имеет базовый интерфейс
 export default class DefaultPage {
 	constructor(name, container) {
 		this.name = name;
