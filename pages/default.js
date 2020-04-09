@@ -79,4 +79,17 @@ export default class DefaultPage {
 		return actual.includes(name);
 	}
 
+	hasAlert() {
+		try {
+			browser.getTitle();
+		} catch (error) {
+			return error.seleniumStack.type === 'UnexpectedAlertOpen';
+		}
+		return false;
+	}
+
+	acceptAnAlert() {
+		browser.alertAccept();
+	}
 }
+
