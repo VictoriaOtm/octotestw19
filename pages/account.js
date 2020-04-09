@@ -7,10 +7,9 @@ class AccountPage extends DefaultPage {
 
 	get locators() {
 		return {
-			login: 'input[name="Login"]',
-			password: 'input[name="Password"]',
-			nextButton: '[data-test-id="next-button"]',
-			submitButton: '[data-test-id="submit-button"]',
+			login: '#js-email-login',
+			password: '#js-password-login',
+			submitButton: '#js-login',
 		}
 	}
 

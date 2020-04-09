@@ -14,10 +14,9 @@ class AccountSteps extends DefaultSteps {
 
 	login() {
 		this.page.fillLoginForm(process.env.LOGIN);
-		this.page.next();
 		this.page.fillPasswordForm(process.env.PASSWORD);
 		this.page.submit();
-		this.page.waitForUrl('https://e.mail.ru/inbox/?afterReload=1');
+		this.page.waitForUrl('https://cinsear.ru');
 	}
 
 	waitForAccount() {
