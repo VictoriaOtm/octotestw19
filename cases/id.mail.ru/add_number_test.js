@@ -3,12 +3,12 @@ import contacts from '../../steps/contacts';
 
 describe('test adding phone number', () => {
 
-	// it('log in', () => {
-	//
-	// });
+	it('log in', () => {
+		account.auth();
+	});
 
 	it('add Invalid Number', () => {
-		account.auth();
+
 		contacts.render();
 		contacts.addInvalidNumber();
 	});

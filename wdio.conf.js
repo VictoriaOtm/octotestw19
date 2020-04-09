@@ -11,7 +11,7 @@ exports.config = {
 	port: 9515,
 	path: '/',
 	specs: [
-		'./cases/example/*.js'
+		'./cases/id.mail.ru/*.js'
 	],
  
 	// ============

@@ -17,6 +17,12 @@ class ContactSteps extends DefaultSteps {
         this.page.checkInvalidNumber();
     }
 
+    addInvalidEmail() {
+        this.page.openEmailPopUp();
+        this.page.insertEmail('rrr');
+        this.page.checkInvalidEmail();
+    }
+
     addValidNumber() {
         this.page.openPhonePopUp();
         this.page.insertPhone(process.env.PHONE);
