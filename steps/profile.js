@@ -13,7 +13,8 @@ class ProfileSteps extends DefaultSteps {
         this.page.openEditModal();
         this.page.fillDescriptionForm();
         this.page.submit();
-        assert(this.page.getDescription(), this.page.description);
+        console.log()
+        assert(this.page.getDescription(), this.page.testDescription);
     }
 
 
@@ -21,7 +22,7 @@ class ProfileSteps extends DefaultSteps {
         this.page.openEditModal();
         this.page.fillNameForm();
         this.page.submit();
-        assert(this.page.getName(), this.page.name);
+        assert(this.page.getName(), this.page.testName);
 
     }
 }

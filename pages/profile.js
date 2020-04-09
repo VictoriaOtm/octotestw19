@@ -5,7 +5,7 @@ class ProfilePage extends DefaultPage {
 
     constructor() {
         super('profile', '.profile');
-        this.testName = 'name';
+        this.testName = 'NAME';
         this.testDescription = 'description';
     }
 
@@ -41,10 +41,12 @@ class ProfilePage extends DefaultPage {
     }
 
     getDescription() {
+        this.page.waitForVisible(this.locators.descriptionText);
         return this.page.getText(this.locators.descriptionText);
     }
 
     getName() {
+        this.page.waitForVisible(this.locators.nameText);
         return this.page.getText(this.locators.nameText);
     }
 

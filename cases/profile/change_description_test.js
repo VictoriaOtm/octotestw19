@@ -10,15 +10,14 @@ describe('Профиль', () => {
         auth.logout();
     });
 
-    it('Изменить поле "имя"', () => {
-        profile.open('https://cinsear.ru/profile');
-        profile.editName();
-    });
-
-    it('Изменять поле "о себе"', () => {
+    it('Изменить поле "о себе"', () => {
         profile.open('https://cinsear.ru/profile');
         profile.editDescription();
     });
 
+    it('Изменить поле "имя"', () => {
+        profile.open('https://cinsear.ru/profile');
+        profile.editName();
+    });
 
 });
