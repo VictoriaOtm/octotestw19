@@ -1,23 +1,23 @@
 import DefaultSteps from './default';
-import page from '../pages/account';
+import page from '../pages/login';
 
-class AccountSteps extends DefaultSteps {
+class LoginSteps extends DefaultSteps {
 	constructor() {
 		super(page);
 	}
 
 	auth() {
-		this.open('https://account.mail.ru');
+		this.open('http://tripway.ru.com/signin');
 		this.waitForAccount();
 		this.login();
 	}
 
 	login() {
 		this.page.fillLoginForm(process.env.LOGIN);
-		this.page.next();
 		this.page.fillPasswordForm(process.env.PASSWORD);
 		this.page.submit();
-		this.page.waitForUrl('https://e.mail.ru/inbox/?afterReload=1');
+		this.page.refresh();
+		this.page.checkProfileIcon();
 	}
 
 	waitForAccount() {
@@ -25,4 +25,4 @@ class AccountSteps extends DefaultSteps {
 	}
 }
 
-export default new AccountSteps();
+export default new LoginSteps();

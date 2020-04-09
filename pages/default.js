@@ -79,4 +79,7 @@ export default class DefaultPage {
 		return actual.includes(name);
 	}
 
+	refresh() {
+		this.page.refresh();
+	}
 }

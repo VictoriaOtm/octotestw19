@@ -1,16 +1,10 @@
-import account from '../../steps/account';
-import letters from '../../steps/letters/index';
+import account from '../../steps/login';
 
 // пример теста
-describe('test id', () => {
-	// используйте beforeEach хук для вызова account.auth(),
-	// если вы тестируете НЕ авторизацию
-
-	it('Авторизоваться и открыть первое письмо на странице', () => {
-		account.open('https://account.mail.ru');
+describe('login-test', () => {
+	it('Авторизоваться', () => {
+		account.open('http://tripway.ru.com/signin');
+		account.waitForAccount();
 		account.login();
-
-		letters.waitForList();
-		letters.openLetter();
 	});
 });

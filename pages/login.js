@@ -1,16 +1,16 @@
 import DefaultPage from './default';
 
-class AccountPage extends DefaultPage {
+class LoginPage extends DefaultPage {
 	constructor() {
-		super('account', '[data-test-id=login-app-ready]')
+		super('login', 'form.light-page__form.login__form-js')
 	}
 
 	get locators() {
 		return {
-			login: 'input[name="Login"]',
-			password: 'input[name="Password"]',
-			nextButton: '[data-test-id="next-button"]',
-			submitButton: '[data-test-id="submit-button"]',
+			login: 'input[name="email"]',
+			password: 'input[name="password"]',
+			submitButton: 'button.button.button_stretched.light-page__button',
+			profileIcon: 'button[name="profile-menu"]',
 		}
 	}
 
@@ -26,16 +26,14 @@ class AccountPage extends DefaultPage {
 		this.page.setValue(this.locators.password, password);
 	}
 
-	next() {
-		this.page.waitForVisible(this.locators.nextButton);
-		this.page.click(this.locators.nextButton)
-	}
-
 	submit() {
 		this.page.waitForVisible(this.locators.submitButton);
-		this.page.click(this.locators.submitButton)
+		this.page.click(this.locators.submitButton);
 	}
 
+	checkProfileIcon() {
+		this.page.waitForVisible(this.locators.profileIcon);
+	}
 }
 
-export default new AccountPage();
+export default new LoginPage();
