@@ -43,4 +43,4 @@ class SearchPage extends DefaultPage {
 	}
 }
 
-export default new AccountPage();
+export default new SearchPage();

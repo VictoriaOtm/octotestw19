@@ -6,7 +6,7 @@ import { foldersHref } from "../../store";
 describe('test id', () => {
     let work_data = {};
 
-    beforeEach(() => {
+    before(() => {
         account.auth();
         search.open(foldersHref.search_jobs);
         work_data = search.getFirstJob();
