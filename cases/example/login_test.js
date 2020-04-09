@@ -2,7 +2,7 @@ import account from '../../steps/account';
 import letters from '../../steps/letters/index';
 
 // пример теста
-describe('test id', () => {
+describe('test id1', () => {
 	// используйте beforeEach хук для вызова account.auth(),
 	// если вы тестируете НЕ авторизацию
 
