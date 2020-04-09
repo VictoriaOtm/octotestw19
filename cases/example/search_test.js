@@ -13,11 +13,11 @@ describe('test id', () => {
     });
 
     it('Поиск работы по тэгу', () => {
-        // search.findJobByTag(work_data);
+        search.findJobByTag(work_data);
     });
 
     it('Поиск работы по слову в названии', () => {
-        // search.findJobByTitle(work_data);
+        search.findJobByTitle(work_data);
     });
 
 });
