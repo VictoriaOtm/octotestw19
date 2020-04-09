@@ -1,16 +1,16 @@
 import DefaultPage from './default';
 
-class AccountPage extends DefaultPage {
+class AuthPage extends DefaultPage {
 	constructor() {
-		super('account', '[data-test-id=login-app-ready]')
+		super('account', '.desktop-navbar')
 	}
 
 	get locators() {
 		return {
-			login: 'input[name="Login"]',
-			password: 'input[name="Password"]',
-			nextButton: '[data-test-id="next-button"]',
-			submitButton: '[data-test-id="submit-button"]',
+			toAuthPageButton: 'a[href="/login"]',
+			login: '#js-email-login',
+			password: '#js-password-login',
+			submitButton: '#js-login',
 		}
 	}
 
@@ -26,16 +26,16 @@ class AccountPage extends DefaultPage {
 		this.page.setValue(this.locators.password, password);
 	}
 
-	next() {
-		this.page.waitForVisible(this.locators.nextButton);
-		this.page.click(this.locators.nextButton)
+	toAuthPage() {
+		this.page.waitForVisible(this.locators.toAuthPageButton);
+		this.page.click(this.locators.toAuthPageButton)
 	}
 
 	submit() {
 		this.page.waitForVisible(this.locators.submitButton);
-		this.page.click(this.locators.submitButton)
+		this.page.click(this.locators.submitButton);
 	}
 
 }
 
-export default new AccountPage();
+export default new AuthPage();
