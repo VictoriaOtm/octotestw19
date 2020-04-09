@@ -2,7 +2,7 @@ import DefaultPage from './default';
 
 class AccountPage extends DefaultPage {
 	constructor() {
-		super('account', '[data-test-id=login-app-ready]')
+		super('account', '.login__form-js')
 	}
 
 	get locators() {
@@ -10,7 +10,8 @@ class AccountPage extends DefaultPage {
 			login: 'input[name="email"]',
 			password: 'input[name="password"]',
 			nextButton: '[data-test-id="next-button"]',
-			submitButton: 'button[type=submit]',
+			submitButton: 'button[type="submit"]',
+			profileIcon: 'button[name="profile-menu"]',
 		}
 	}
 
@@ -34,9 +35,15 @@ class AccountPage extends DefaultPage {
 	submit() {
 		this.page.waitForVisible(this.locators.submitButton);
 		this.page.click(this.locators.submitButton);
-		browser.url("/")
 	}
 
+	checkProfileIcon(){
+		this.page.waitForVisible(this.locators.profileIcon);
+	}
+
+	refresh() {
+		browser.refresh()
+	}
 }
 
 export default new AccountPage();
