@@ -7,10 +7,10 @@ class AccountPage extends DefaultPage {
 
 	get locators() {
 		return {
-			login: 'input[name="Login"]',
-			password: 'input[name="Password"]',
+			login: 'input[id="emailinput"]',
+			password: 'input[id="passwordinput"]',
 			nextButton: '[data-test-id="next-button"]',
-			submitButton: '[data-test-id="submit-button"]',
+			submitButton: 'input[class="button login-block__button login-block__button_margin"]',
 		}
 	}
 
@@ -26,10 +26,10 @@ class AccountPage extends DefaultPage {
 		this.page.setValue(this.locators.password, password);
 	}
 
-	next() {
-		this.page.waitForVisible(this.locators.nextButton);
-		this.page.click(this.locators.nextButton)
-	}
+	// next() {
+	// 	this.page.waitForVisible(this.locators.nextButton);
+	// 	this.page.click(this.locators.nextButton)
+	// }
 
 	submit() {
 		this.page.waitForVisible(this.locators.submitButton);
