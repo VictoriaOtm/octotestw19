@@ -7,7 +7,7 @@ describe('test id', () => {
 	// если вы тестируете НЕ авторизацию
 
 	it('Авторизоваться и открыть первое письмо на странице', () => {
-		account.open('https://account.mail.ru');
+		account.open('https://account.mail.ru/login?page=https%3A%2F%2Faccount.mail.ru%2F%3F&');
 		account.login();
 
 		letters.waitForList();
