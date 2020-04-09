@@ -7,17 +7,16 @@ class AccountSteps extends DefaultSteps {
 	}
 
 	auth() {
-		this.open('https://account.mail.ru');
+		this.open('https://tripway.ru.com/signin');
 		this.waitForAccount();
 		this.login();
 	}
 
 	login() {
 		this.page.fillLoginForm(process.env.LOGIN);
-		this.page.next();
 		this.page.fillPasswordForm(process.env.PASSWORD);
 		this.page.submit();
-		this.page.waitForUrl('https://e.mail.ru/inbox/?afterReload=1');
+		this.page.waitForUrl('https://tripway.ru.com');
 	}
 
 	waitForAccount() {

@@ -7,10 +7,10 @@ class AccountPage extends DefaultPage {
 
 	get locators() {
 		return {
-			login: 'input[name="Login"]',
-			password: 'input[name="Password"]',
+			login: 'input[name="email"]',
+			password: 'input[name="password"]',
 			nextButton: '[data-test-id="next-button"]',
-			submitButton: '[data-test-id="submit-button"]',
+			submitButton: 'button[type=submit]',
 		}
 	}
 
@@ -33,7 +33,8 @@ class AccountPage extends DefaultPage {
 
 	submit() {
 		this.page.waitForVisible(this.locators.submitButton);
-		this.page.click(this.locators.submitButton)
+		this.page.click(this.locators.submitButton);
+		browser.url("/")
 	}
 
 }
