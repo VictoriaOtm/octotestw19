@@ -10,6 +10,7 @@ class AccountPage extends DefaultPage {
 			login: '#js-email-login',
 			password: '#js-password-login',
 			submitButton: '#js-login',
+			logoutButton: '.js-logout-button',
 		}
 	}
 
@@ -25,9 +26,8 @@ class AccountPage extends DefaultPage {
 		this.page.setValue(this.locators.password, password);
 	}
 
-	next() {
-		this.page.waitForVisible(this.locators.nextButton);
-		this.page.click(this.locators.nextButton)
+	waitLogoutButton() {
+		this.page.waitForVisible(this.locators.logoutButton);
 	}
 
 	submit() {
