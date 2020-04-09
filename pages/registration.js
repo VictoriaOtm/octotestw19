@@ -1,22 +1,29 @@
 import DefaultPage from './default';
 
-class AccountPage extends DefaultPage {
+class RegisterPage extends DefaultPage {
 	constructor() {
 		super('account', '[data-test-id=login-app-ready]')
 	}
 
 	get locators() {
 		return {
-			email: 'input[id="emailinput"]',
-			password: 'input[id="passwordinput"]',
-			submitButton: 'input[class="button login-block__button login-block__button_margin"]',
+            email: 'input[id="signUpEmail"]',
+			login: 'input[id="signUpUsername"]',
+			password: 'input[id="signUpPassword"]',
+			submitButton: 'button[class="buttonComponent"]',
 		}
 	}
 
-	fillEmailForm (username) {
+    fillEmailForm (email) {
 		this.page.waitForVisible(this.locators.email);
 		this.page.click(this.locators.email);
-		this.page.setValue(this.locators.email, username);
+		this.page.setValue(this.locators.email, email);
+    }
+    
+	fillLoginForm (username) {
+		this.page.waitForVisible(this.locators.login);
+		this.page.click(this.locators.login);
+		this.page.setValue(this.locators.login, username);
 	}
 
 	fillPasswordForm (password) {
@@ -32,4 +39,4 @@ class AccountPage extends DefaultPage {
 
 }
 
-export default new AccountPage();
+export default new RegisterPage();

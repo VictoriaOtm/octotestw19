@@ -13,11 +13,17 @@ class AccountSteps extends DefaultSteps {
 	}
 
 	login() {
-		this.page.fillLoginForm(process.env.LOGIN);
-		// this.page.next();
+		this.page.fillEmailForm(process.env.LOGIN);
 		this.page.fillPasswordForm(process.env.PASSWORD);
 		this.page.submit();
 		this.page.waitForUrl('https://solarsunrise.ru/profile');
+	}
+
+	nologin() {
+		this.page.fillEmailForm(process.env.NO_LOGIN);
+		this.page.fillPasswordForm(process.env.NO_PASSWORD);
+		this.page.submit();
+		this.page.waitForContainerName('div[id="loginTextErr"]');
 	}
 
 	waitForAccount() {
