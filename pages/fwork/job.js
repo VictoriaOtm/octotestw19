@@ -10,46 +10,24 @@ class JobPage extends DefaultPage {
 			title: 'input[name="title"]',
 			description: 'textarea[name="description"]',
 			paymentAmount: 'input[name="paymentAmount"]',
-			tags: 'input.input-tags__input',
-			selectCategory: '//div[@class="field-group"][4]/div/div[1]//div[@class="select-custom__header"]',
-			selectSpec: '//div[@class="field-group"][4]/div/div[2]//div[@class="select-custom__header"]',
-			selectCountry: '//div[@class="field-group"][7]/div/div[1]//div[@class="select-custom__header"]',
-			selectCity: '//div[@class="field-group"][7]/div/div[2]//div[@class="select-custom__header"]',
-			catItem: '//div[@class="field-group"][4]/div/div[1]//div[@class="select-custom__dropdown"]/ul/li[1]',
-			specItem: '//div[@class="field-group"][4]/div/div[2]//div[@class="select-custom__dropdown"]/ul/li[1]',
-			countryItem: '//div[@class="field-group"][7]/div/div[1]//div[@class="select-custom__dropdown"]/ul/li[1]',
-			cityItem:    '//div[@class="field-group"][7]/div/div[2]//div[@class="select-custom__dropdown"]/ul/li[1]',
+			tags: '//input[@data-test-id="job-form-tags"]',
+			selectCategory: '//div[@data-test-id="job-form-category-select"]//div[@class="select-custom__header"]',
+			selectSpec: '//div[@data-test-id="job-form-spec-select"]//div[@class="select-custom__header"]',
+			selectCountry: '//div[@data-test-id="job-form-country-select"]//div[@class="select-custom__header"]',
+			selectCity: '//div[@data-test-id="job-form-city-select"]//div[@class="select-custom__header"]',
+			catItem: '//div[@data-test-id="job-form-category-select"]//div[@class="select-custom__dropdown"]/ul/li[1]',
+			specItem: '//div[@data-test-id="job-form-spec-select"]//div[@class="select-custom__dropdown"]/ul/li[1]',
+			countryItem: '//div[@data-test-id="job-form-country-select"]//div[@class="select-custom__dropdown"]/ul/li[1]',
+			cityItem: '//div[@data-test-id="job-form-city-select"]//div[@class="select-custom__dropdown"]/ul/li[1]',
 			selectFirstItem: 'li[data-val="0"]',
-			levelRadio: '//div[@class="radio-group"]/div/label[@class="radio"][3]//span[@class="radio__label"][1]',
-			submitButton: 'button.btn.btn_primary[type="submit"]',
+			levelRadio: '//span[@data-test-id="radio-label-3"]',
+			submitButton: '//button[@data-test-id="job-form-submit"]',
 			itemToDelete: '//section[@class="item router-link"][1]',
-			buttonDelete: '//section[@class="item router-link"][1]//button[@class="delete-job-action manage-btn"][1]',
-			modalWindow: '.modal-window.card',
-			buttonApproveDelete: '//button[@type="submit"][@class="btn btn_primary btn-m btn_fit "]',
+			buttonDelete: '//button[@class="delete-job-action manage-btn"][1]',
+			modalWindow: '//*[@data-test-id="approve-delete-dialog"]',
+			buttonApproveDelete: '//*[@data-test-id="approve-delete-button"]',
+			jobDetails: '.job-details',
 		};
-	}
-
-	fillAddJobForm ({
-						title = 'Название заказа',
-						description = 'Описание достаточно длинное для удобвлетворения требований',
-						paymentAmount = 100,
-						tags = 'javascript'
-	} = {}) {
-		this.fillTitle(title);
-		this.fillDescription(description);
-
-		this.fillPaymentAmount(100);
-		this.fillTags(tags);
-		this.chooseLevelRadio();
-
-		this.selectCategory();
-		this.selectCountry();
-
-		this.selectSpec();
-		this.selectCity();
-
-		this.fillDescription(description);
-		this.fillTitle(title);
 	}
 
 	fillTitle(title){
@@ -114,7 +92,7 @@ class JobPage extends DefaultPage {
 	}
 
 	waitForJobPage() {
-		this.page.waitForVisible(".job-details")
+		this.page.waitForVisible(this.locators.jobDetails)
 	}
 
 	deleteJob(){

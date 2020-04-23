@@ -6,9 +6,9 @@ class JobSteps extends DefaultSteps {
 		super(page);
 	}
 
-	addJob(){
+	addJob(job){
 		this.page.waitForContainer();
-		this.page.fillAddJobForm();
+		this.fillAddJobForm(job);
 		this.page.submitAdd();
 		this.page.waitForJobPage();
 	}
@@ -16,6 +16,26 @@ class JobSteps extends DefaultSteps {
 	deleteJob(){
 		this.page.waitForContainer();
 		this.page.deleteJob();
+	}
+
+	fillAddJobForm ({
+		title,
+		description,
+		paymentAmount,
+		tags
+	} = {}) {
+		this.fillTitle(title);
+		this.fillDescription(description);
+
+		this.fillPaymentAmount(paymentAmount);
+		this.fillTags(tags);
+		this.chooseLevelRadio();
+
+		this.selectCategory();
+		this.selectCountry();
+
+		this.selectSpec();
+		this.selectCity();
 	}
 }
 

@@ -1,5 +1,6 @@
 import auth from '../../steps/fwork/auth';
-import job from '../../steps/fwork/job';
+import jobStep from '../../steps/fwork/job';
+import {job} from '../../store';
 
 describe('test add job', () => {
 	beforeEach(() => {
@@ -7,7 +8,7 @@ describe('test add job', () => {
 	});
 
 	it('Добавить заказ', () => {
-		job.open("https://fwork.live/new-job");
-		job.addJob();
+		jobStep.open("https://fwork.live/new-job");
+		jobStep.addJob(job);
 	});
 });
