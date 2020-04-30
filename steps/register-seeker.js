@@ -7,13 +7,13 @@ class RegisterSeekerWithExistingEmailSteps extends DefaultSteps {
 	}
 
 	register({name, surname, login, password} = {}) {
-        this.page.fillNameInput(name);
-        this.page.fillSurnameInput(surname);
+		this.page.fillNameInput(name);
+		this.page.fillSurnameInput(surname);
 		this.page.fillEmailInput(login);
 		this.page.fillPasswordInput(password);
-        this.page.fillRepeatPasswordInput(password);
-        this.page.submit();
-        this.page.checkEmailErrorMessage();
+		this.page.fillRepeatPasswordInput(password);
+		this.page.submit();
+		this.page.checkEmailErrorMessage();
 	}
 
 	waitForRegisterForm() {
