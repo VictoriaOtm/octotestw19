@@ -26,26 +26,27 @@ class AccountSteps extends DefaultSteps {
 		this.page.waitForUrl('https://e.mail.ru/messages/inbox?afterReload=1');
 		this.open("https://cloud.mail.ru/");
 		this.page.waitForUrl("https://cloud.mail.ru/home");
+	}
 
+	createDirectoryAndGoTo(dirName) {
+		// first case
+		this.page.createDirectory(dirName)
+		this.open("https://cloud.mail.ru/");
+		this.page.waitForUrl("https://cloud.mail.ru/home");
+		this.goToDirectory(dirName)
+	}
 
-		//first case
-		this.page.createDirectory("Kek")
-
-		this.goToDirectory("Kek")
-
-
-		//second test
+	createSubDirectoryAndGoTo(firstDirName, secondDirName) {
+		// second case
 		this.open("https://cloud.mail.ru/");
 		this.page.waitForUrl("https://cloud.mail.ru/home");
 
-		this.page.createDirectory("Kek1")
-		//this.page.goToDirectory("Kek1")
-		this.page.createDirectory("Kek2")
-		//this.page.goToDirectory("Kek2")
+		this.page.createDirectory(firstDirName)
+		this.page.createDirectory(secondDirName)
 		this.open("https://cloud.mail.ru/");
 		this.page.waitForUrl("https://cloud.mail.ru/home");
-		this.page.goToDirectory("Kek1")
-		this.page.goToDirectory("Kek2")
+		this.page.goToDirectory(firstDirName)
+		this.page.goToDirectory(secondDirName)
 	}
 
 	waitForAccount() {
