@@ -6,4 +6,8 @@ export default class DefaultSteps {
 	open(path) {
 		browser.url(path);
 	}
+
+	reload() {
+		browser.reload();
+	}
 }
