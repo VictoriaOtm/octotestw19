@@ -1,5 +1,5 @@
 import account from '../../steps/account';
-import letters from '../../steps/letters/index';
+import letters from '../../steps/letters';
 
 // пример теста
 describe('test id', () => {
