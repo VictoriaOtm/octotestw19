@@ -1,9 +1,9 @@
 export default class DefaultSteps {
-	constructor(page) {
-		this.page = page;
-	}
+    constructor(page) {
+        this.page = page;
+    }
 
-	open(path) {
-		browser.url(path);
-	}
+    open(path) {
+        browser.url(path);
+    }
 }

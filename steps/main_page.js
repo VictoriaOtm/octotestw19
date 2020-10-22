@@ -12,7 +12,7 @@ class mainPageSteps extends DefaultSteps {
         this.page.containsPause();
     }
 
-    unwrapPlayer(){
+    unwrapPlayer() {
         this.page.unwrapPlayer();
     }
 }

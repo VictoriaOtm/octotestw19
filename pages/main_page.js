@@ -15,30 +15,30 @@ class MainPage extends DefaultPage {
         }
     }
 
-    playTrack () {
+    playTrack() {
         this.page.waitForVisible(this.locators.track);
         this.page.click(this.locators.track);
     }
 
-    wrapPlayer (){
+    wrapPlayer() {
         this.page.waitForVisible(this.locators.trigger);
         this.page.click(this.locators.trigger);
     }
 
-    containsPause () {
+    containsPause() {
         this.page.waitForVisible(this.locators.pause);
     }
 
-    pauseTrack(){
+    pauseTrack() {
         this.page.waitForVisible(this.locators.pause);
         this.page.click(this.locators.pause);
     }
 
-    containsPlay(){
+    containsPlay() {
         this.page.waitForVisible(this.locators.play);
     }
 
-    unwrapPlayer(){
+    unwrapPlayer() {
         this.page.waitForVisible(this.locators.trigger);
         this.page.click(this.locators.trigger);
     }

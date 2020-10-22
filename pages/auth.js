@@ -13,13 +13,13 @@ class authPage extends DefaultPage {
         }
     }
 
-    fillLoginForm (username) {
+    fillLoginForm(username) {
         this.page.waitForVisible(this.locators.login);
         this.page.click(this.locators.login);
         this.page.setValue(this.locators.login, username);
     }
 
-    fillPasswordForm (password) {
+    fillPasswordForm(password) {
         this.page.waitForVisible(this.locators.password);
         this.page.click(this.locators.password);
         this.page.setValue(this.locators.password, password);

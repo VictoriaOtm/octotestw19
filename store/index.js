@@ -1,5 +1,5 @@
 export const foldersHref = {
-	inbox: '/inbox/',
-	sent: '/sent/',
-	drafts: '/drafts/',
+    inbox: '/inbox/',
+    sent: '/sent/',
+    drafts: '/drafts/',
 };
