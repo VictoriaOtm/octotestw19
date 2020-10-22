@@ -7,18 +7,13 @@ class AccountSteps extends DefaultSteps {
 	}
 
 	auth() {
-		this.open('https://account.mail.ru');
-		this.waitForAccount();
+		this.open('https://zinterest.ru/login');
 		this.login();
 	}
 
 	login() {
-		this.page.fillLoginForm(process.env.LOGIN);
-		this.page.next();
-		this.page.fillPasswordForm(process.env.PASSWORD);
-		this.page.submit();
-		this.page.waitForUrl('https://e.mail.ru/inbox/?afterReload=1');
-	}
+		this.page.fillLoginForm(process.env.LOGIN, process.env.PASSWORD);
+		this.page.submit();}
 
 	waitForAccount() {
 		this.page.waitForContainer();
