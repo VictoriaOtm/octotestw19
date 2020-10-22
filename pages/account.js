@@ -2,16 +2,22 @@ import DefaultPage from './default';
 
 class AccountPage extends DefaultPage {
 	constructor() {
-		super('account', '[data-test-id=login-app-read]')
+		super('account', '[id="loginPart"]')
 	}
 
 	get locators() {
 		return {
-			login: 'input[name="username"]',
-			password: 'input[name="password"]',
-			nextButton: '[data-test-id="next-button"]',
-			submitButton: '[data-test-id="submit-button"]',
+			login: 'input[id="loginUser"]',
+			password: 'input[id="passUser"]',
+			submitButton: '[id="sendLogin"]',
+			enterButton: '[id="loginModal"]',
+			closeInfo: '[id="closeInfo"]'
 		}
+	}
+
+	loginOpen () {
+		this.page.waitForVisible(this.locators.enterButton);
+		this.page.click(this.locators.enterButton)
 	}
 
 	fillLoginForm (username) {
@@ -26,14 +32,14 @@ class AccountPage extends DefaultPage {
 		this.page.setValue(this.locators.password, password);
 	}
 
-	next() {
-		this.page.waitForVisible(this.locators.nextButton);
-		this.page.click(this.locators.nextButton)
-	}
-
 	submit() {
 		this.page.waitForVisible(this.locators.submitButton);
 		this.page.click(this.locators.submitButton)
+	}
+
+	closeLogin() {
+		this.page.waitForVisible(this.locators.closeInfo);
+		this.page.click(this.locators.closeInfo);
 	}
 
 }
