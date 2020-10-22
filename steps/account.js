@@ -22,6 +22,10 @@ class AccountSteps extends DefaultSteps {
 	waitForAccount() {
 		this.page.waitForContainer();
 	}
+
+	openSettings() {
+		this.page.openSettings()
+	}
 }
 
 export default new AccountSteps();

@@ -10,6 +10,7 @@ class AccountPage extends DefaultPage {
 			login: 'input[id="inputLogin"]',
 			password: 'input[id="inputPassword"]',
 			submitButton: 'div[id="submit_button"]',
+			openSettingsButton: 'img[id="submitSettings"]',
 		}
 	}
 
@@ -28,6 +29,11 @@ class AccountPage extends DefaultPage {
 	submit() {
 		this.page.waitForVisible(this.locators.submitButton);
 		this.page.click(this.locators.submitButton)
+	}
+
+	openSettings() {
+		this.page.waitForVisible(this.locators.openSettingsButton);
+		this.page.click(this.locators.openSettingsButton);
 	}
 
 }
