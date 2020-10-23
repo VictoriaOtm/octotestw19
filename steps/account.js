@@ -7,15 +7,9 @@ class AccountSteps extends DefaultSteps {
 	}
 
 	auth() {
-		this.open('https://cloud.mail.ru');
-		this.waitForAccount();
+		this.open('https://account.mail.ru');
+		//this.waitForAccount();
 		this.login();
-	}
-
-	goToDirectory(dirName) {
-		let url = "https://cloud.mail.ru/home/" + dirName + "/"
-		this.open(url)
-		this.page.waitForUrl(url)
 	}
 
 	login() {
@@ -23,34 +17,14 @@ class AccountSteps extends DefaultSteps {
 		this.page.next();
 		this.page.fillPasswordForm(process.env.PASSWORD);
 		this.page.submit();
-		this.page.waitForUrl('https://e.mail.ru/messages/inbox?afterReload=1');
-		this.open("https://cloud.mail.ru/");
-		this.page.waitForUrl("https://cloud.mail.ru/home");
-	}
-
-	createDirectoryAndGoTo(dirName) {
-		// first case
-		this.page.createDirectory(dirName)
-		this.open("https://cloud.mail.ru/");
-		this.page.waitForUrl("https://cloud.mail.ru/home");
-		this.goToDirectory(dirName)
-	}
-
-	createSubDirectoryAndGoTo(firstDirName, secondDirName) {
-		// second case
-		this.open("https://cloud.mail.ru/");
-		this.page.waitForUrl("https://cloud.mail.ru/home");
-
-		this.page.createDirectory(firstDirName)
-		this.page.createDirectory(secondDirName)
-		this.open("https://cloud.mail.ru/");
-		this.page.waitForUrl("https://cloud.mail.ru/home");
-		this.page.goToDirectory(firstDirName)
-		this.page.goToDirectory(secondDirName)
+		this.page.waitForUrl('https://e.mail.ru/inbox/?afterReload=1');
+		this.open("https://cloud.mail.ru/home");
 	}
 
 	waitForAccount() {
-		this.page.waitForContainer();
+		//this.page.waitForContainer();
+		this.open("https://cloud.mail.ru/");
+		this.page.waitForUrl("https://cloud.mail.ru/");
 	}
 }
 

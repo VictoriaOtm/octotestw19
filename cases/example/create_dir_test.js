@@ -1,12 +1,14 @@
 import account from '../../steps/account';
+import directory from '../../steps/directory';
 import letters from '../../steps/letters/index';
 
+
 describe('test id 2', () => {
+    beforeEach(() => {
+        account.auth();
+    });
 
     it('Создать папку и перейти в нее', () => {
-        account.open('https://account.mail.ru');
-        account.login();
-
-        account.createDirectoryAndGoTo("FirstDirectory");
+        directory.createDirectoryAndGoTo("FirstDirectory");
     });
 });
