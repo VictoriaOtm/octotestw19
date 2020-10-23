@@ -4,6 +4,7 @@ import page from '../pages/directory';
 class DirectorySteps extends DefaultSteps {
     constructor() {
         super(page);
+        this.baseUrl = "https://cloud.mail.ru/home/"
     }
 
     openAndWaitForUrl(url) {
@@ -12,11 +13,11 @@ class DirectorySteps extends DefaultSteps {
     }
 
     goToDirectory(dirName) {
-        const url = "https://cloud.mail.ru/home/" + dirName + "/"
+        const url = this.baseUrl + dirName + "/"
         this.openAndWaitForUrl(url)
     }
     goToSubDirectory(previosDirName, dirName) {
-        const url = "https://cloud.mail.ru/home/" + previosDirName + "/" + dirName + "/"
+        const url = this.baseUrl + previosDirName + "/" + dirName + "/"
         this.openAndWaitForUrl(url)
     }
 
@@ -27,17 +28,16 @@ class DirectorySteps extends DefaultSteps {
 
     createDirectoryAndGoTo(dirName) {
         this.page.createDirectory(dirName)
-        this.openAndWaitForUrl("https://cloud.mail.ru/home")
+        this.openAndWaitForUrl(this.baseUrl)
         this.goToDirectory(dirName)
         this.page.deleteCurrentDirectory()
     }
 
     createSubDirectoryAndGoTo(firstDirName, secondDirName) {
-        const url = "https://cloud.mail.ru/home"
-        this.openAndWaitForUrl(url)
+        this.openAndWaitForUrl(this.baseUrl)
         this.page.createDirectory(firstDirName)
         this.page.createDirectory(secondDirName)
-        this.openAndWaitForUrl(url)
+        this.openAndWaitForUrl(this.baseUrl)
         this.goToDirectory(firstDirName)
         this.goToSubDirectory(firstDirName, secondDirName)
         this.deleteCurrentSubDirectoryAndDirectory()
