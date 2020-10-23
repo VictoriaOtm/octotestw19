@@ -10,7 +10,6 @@ class SettingsSteps extends DefaultSteps {
 
 	changeName(name) {
 		this.open('https://virusmusic.fun/settings');
-		this.page.waitForUrl('https://virusmusic.fun/settings');
 		this.page.fillNameInput(name);
 		this.page.submit();
 		this.page.waitForPopUp();
@@ -24,7 +23,6 @@ class SettingsSteps extends DefaultSteps {
 
 	changeEmail(email) {
 		this.open('https://virusmusic.fun/settings');
-		this.page.waitForUrl('https://virusmusic.fun/settings');
 		this.page.fillEmailInput(email);
 		this.page.submit();
 		this.page.waitForPopUp();
