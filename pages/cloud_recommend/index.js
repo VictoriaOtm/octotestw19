@@ -12,6 +12,14 @@ class CloudRecommendationPage extends DefaultPage {
             isq: 'a[href="https://trk.mail.ru/c/lmg5u5"]',
         }
     }
+
+    get urlsAfterClick() {
+        return {
+            screenshoter: "https://apps.apple.com/ru/app/screenshoter-mail-ru/id1144027175?mt=12",
+            diskO: "https://apps.apple.com/ru/app/disk-o-all-clouds-one-place/id1322465647?l=ru&mt=12",
+            isq: "https://icq.com/",
+        }
+    }
     
     get location() {
         return '/recommend/';
@@ -35,21 +43,21 @@ class CloudRecommendationPage extends DefaultPage {
     clickScreenshoterLink () {
         this._clickWaitCheck(
             this.locators.screenshoter,
-            "https://apps.apple.com/ru/app/screenshoter-mail-ru/id1144027175?mt=12",
+            this.urlsAfterClick.screenshoter
         );
     }
     
     clickDiskOLink () {
         this._clickWaitCheck(
             this.locators.diskO,
-            "https://apps.apple.com/ru/app/disk-o-all-clouds-one-place/id1322465647?l=ru&mt=12"
+            this.urlsAfterClick.diskO
         );
     }
 
     clickIsqLink () {
         this._clickWaitCheck(
             this.locators.isq,
-            "https://icq.com/",
+            this.urlsAfterClick.isq
         )
     }
 
