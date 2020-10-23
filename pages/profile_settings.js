@@ -15,11 +15,6 @@ class ProfileSettingsPage extends DefaultPage {
 		}
 	}
 
-	get nameForm() {
-		this.page.waitForVisible(this.locators.name);
-		return this.page.getValue(this.locators.name);
-	}
-
 	fillNameForm (name) {
 		this.page.waitForVisible(this.locators.name);
 		this.page.click(this.locators.name);
@@ -28,11 +23,6 @@ class ProfileSettingsPage extends DefaultPage {
 
 	checkInvalidNameForm () {
 		this.page.waitForVisible(this.locators.nameError);
-	}
-
-	get surnameForm() {
-		this.page.waitForVisible(this.locators.surname);
-		return this.page.getValue(this.locators.surname);
 	}
 
 	fillSurnameForm (surname) {

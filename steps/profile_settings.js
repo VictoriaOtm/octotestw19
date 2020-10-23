@@ -6,28 +6,29 @@ class ProfileSettingsPage extends DefaultSteps {
 		super(page);
 	}
 
-	change() {
+	changeName(name) {
 		this.open('https://drello.works/profile');
 		this.waitForProfileSettings();
-		
-		this.setInvalidName();
-		this.setInvalidSurname();
+
+		this.page.fillNameForm(name);
+		this.page.submit();
 	}
 
-
-	setInvalidName() {
-		this.page.fillNameForm("1");
-		this.page.submit();
+	checkInvalidName() {
 		this.page.checkInvalidNameForm();
 	}
 
+	changeSurname(surname) {
+		this.open('https://drello.works/profile');
+		this.waitForProfileSettings();
 
-	setInvalidSurname() {
-		this.page.fillSurnameForm("2");
+		this.page.fillSurnameForm(surname);
 		this.page.submit();
-		this.page.checkInvalidSurnameForm();
 	}
 
+	checkInvalidSurname() {
+		this.page.checkInvalidSurnameForm();
+	}
 
 	waitForProfileSettings() {
 		this.page.waitForContainer();
