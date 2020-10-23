@@ -2,33 +2,34 @@ import DefaultPage from './default';
 
 class AccountPage extends DefaultPage {
 	constructor() {
-		super('account', '[data-test-id=login-app-read]')
+		super('account', '[id="loginPart"]')
 	}
 
 	get locators() {
 		return {
-			login: 'input[name="username"]',
-			password: 'input[name="password"]',
-			nextButton: '[data-test-id="next-button"]',
-			submitButton: '[data-test-id="submit-button"]',
+			loginInput: 'input[id="loginUser"]',
+			passwordInput: 'input[id="passUser"]',
+			submitButton: '[id="sendLogin"]',
+			enterButton: '[id="loginModal"]',
+			closeInfoButton: '[id="closeInfo"]'
 		}
 	}
 
+	loginOpen () {
+		this.page.waitForVisible(this.locators.enterButton);
+		this.page.click(this.locators.enterButton)
+	}
+
 	fillLoginForm (username) {
-		this.page.waitForVisible(this.locators.login);
-		this.page.click(this.locators.login);
-		this.page.setValue(this.locators.login, username);
+		this.page.waitForVisible(this.locators.loginInput);
+		this.page.click(this.locators.loginInput);
+		this.page.setValue(this.locators.loginInput, username);
 	}
 
 	fillPasswordForm (password) {
-		this.page.waitForVisible(this.locators.password);
-		this.page.click(this.locators.password);
-		this.page.setValue(this.locators.password, password);
-	}
-
-	next() {
-		this.page.waitForVisible(this.locators.nextButton);
-		this.page.click(this.locators.nextButton)
+		this.page.waitForVisible(this.locators.passwordInput);
+		this.page.click(this.locators.passwordInput);
+		this.page.setValue(this.locators.passwordInput, password);
 	}
 
 	submit() {
@@ -36,6 +37,10 @@ class AccountPage extends DefaultPage {
 		this.page.click(this.locators.submitButton)
 	}
 
+	closeLogin() {
+		this.page.waitForVisible(this.locators.closeInfoButton);
+		this.page.click(this.locators.closeInfoButton);
+	}
 }
 
 export default new AccountPage();
