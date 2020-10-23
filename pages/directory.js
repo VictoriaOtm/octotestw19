@@ -18,27 +18,26 @@ class DirectoryPage extends DefaultPage {
         }
     }
 
-    deleteCurrentDirectory() {
-        this.page.waitForVisible(this.locators.deleteFolderButton);
-        this.page.click(this.locators.deleteFolderButton)
+    waitForVisibleAndClick(locator) {
+        this.page.waitForVisible(locator);
+        this.page.click(locator);
+    }
 
-        this.page.waitForVisible(this.locators.confirmDeleteFolderButton);
-        this.page.click(this.locators.confirmDeleteFolderButton);
+    deleteCurrentDirectory() {
+        this.waitForVisibleAndClick(this.locators.deleteFolderButton)
+        this.waitForVisibleAndClick(this.locators.confirmDeleteFolderButton)
     }
 
     fillDirectoryNameForm (dirName) {
-        this.page.waitForVisible(this.locators.dirNameInput);
-        this.page.click(this.locators.dirNameInput);
+        this.waitForVisibleAndClick(this.locators.dirNameInput)
         this.page.setValue(this.locators.dirNameInput, dirName);
     }
 
     createDirectory(dirName) {
-        this.page.waitForVisible(this.locators.createButton);
-        this.page.click(this.locators.createButton)
-        this.page.waitForVisible(this.locators.createDirectoryButton);
-        this.page.click(this.locators.createDirectoryButton)
+        this.waitForVisibleAndClick(this.locators.createButton)
+        this.waitForVisibleAndClick(this.locators.createDirectoryButton)
         this.fillDirectoryNameForm(dirName)
-        this.page.click(this.locators.submitButtonCreate)
+        this.waitForVisibleAndClick(this.locators.submitButtonCreate)
     }
 
 }

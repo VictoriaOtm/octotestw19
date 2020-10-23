@@ -3,7 +3,7 @@ import letters from '../../steps/letters/index';
 
 describe('test id', () => {
 
-	it('Авторизоваться и открыть первое письмо на странице', () => {
+	it('Авторизоваться на странице', () => {
 		account.open('https://account.mail.ru');
 		account.login();
 	});
