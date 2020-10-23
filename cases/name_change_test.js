@@ -1,7 +1,7 @@
-import account from '../../steps/account';
-import settings from '../../steps/settings';
+import account from '../steps/account';
+import settings from '../steps/settings';
 
-describe('test id', () => {
+describe('Смена имени', () => {
 	beforeEach(() => {
 		account.auth();
 	});

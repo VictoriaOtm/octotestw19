@@ -1,6 +1,6 @@
-import account from '../../steps/account';
+import account from '../steps/account';
 
-describe('test id', () => {
+describe('Проверка авторизации', () => {
 	it('Авторизоваться', () => {
 		account.open('https://virusmusic.fun/login');
 		account.login();

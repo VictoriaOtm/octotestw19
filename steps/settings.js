@@ -13,14 +13,13 @@ class SettingsSteps extends DefaultSteps {
 		this.page.waitForUrl('https://virusmusic.fun/settings');
 		this.page.fillNameInput(name);
 		this.page.submit();
-		this.page.page.waitForVisible(this.page.locators.popUp);
+		this.page.waitForPopUp();
 	}
 
 	checkName(name) {
-		this.page.page.refresh();
-		this.page.page.waitForVisible(this.page.locators.name);
-		this.page.page.waitForValue(this.page.locators.name);
-		assert.equal($(this.page.locators.name).getValue(), name);
+		this.page.refresh();
+		const value = this.page.getNameValue();
+		assert.equal(value, name);
 	}
 
 	changeEmail(email) {
@@ -28,14 +27,13 @@ class SettingsSteps extends DefaultSteps {
 		this.page.waitForUrl('https://virusmusic.fun/settings');
 		this.page.fillEmailInput(email);
 		this.page.submit();
-		this.page.page.waitForVisible(this.page.locators.popUp);
+		this.page.waitForPopUp();
 	}
 
 	checkEmail(email) {
-		this.page.page.refresh();
-		this.page.page.waitForVisible(this.page.locators.email);
-		this.page.page.waitForValue(this.page.locators.email);
-		assert.equal($(this.page.locators.email).getValue(), email);
+		this.page.refresh();
+		const value = this.page.getEmailValue();
+		assert.equal(value, email);
 	}
 }
 

@@ -27,7 +27,7 @@ class AccountSteps extends DefaultSteps {
 
 	checkLogin() {
 		assert.equal(
-			$(this.page.locators.navLogin).getText(),
+			$(this.page.locators.loginInNavbar).getText(),
 			process.env.LOGIN);
 	}
 }
