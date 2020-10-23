@@ -1,7 +1,7 @@
 import DefaultSteps from "./default";
 import page from "../pages/otvet";
 
-const search_text = "TEXT";
+const SEARCH_TEXT = "TEXT";
 
 class OtvetSteps extends DefaultSteps {
     // constructor() {
@@ -19,8 +19,8 @@ class OtvetSteps extends DefaultSteps {
     }
 
     FillSearch() {
-        page.inputSearch(search_text);
-        page.getSearch(search_text);
+        page.inputSearch(SEARCH_TEXT);
+        page.getSearch(SEARCH_TEXT);
     }
 }
 
