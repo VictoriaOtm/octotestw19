@@ -1,5 +1,5 @@
 import DefaultPage from './default';
-import { strict as assert } from 'assert';
+import {strict as assert} from 'assert';
 
 class OtvetPage extends DefaultPage {
     constructor() {
@@ -25,8 +25,8 @@ class OtvetPage extends DefaultPage {
     ClickCategoryList() {
         this.page.waitForVisible(this.locators.fullList);
         this.page.click(this.locators.fullList);
-        var header_text = $('h1').getText();
-        assert.equal(header_text,this.locators.header);
+        let header_text = $('h1').getText();
+        assert.equal(header_text, this.locators.header);
     }
 
     inputSearch(text) {

@@ -7,7 +7,7 @@ describe('test Otvet', () => {
         OtvetSteps.GoToCategoryList();
     });
 
-    it('Открыть ответы,перейти в поиск и сравнить текста поисков', () => {
+    it('Открыть ответы,перейти в поиск и сравнить текста в разных инпутах поиска', () => {
         OtvetSteps.OpenOtvet();
         OtvetSteps.FillSearch();
     });
