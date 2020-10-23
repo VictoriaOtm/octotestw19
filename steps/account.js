@@ -4,11 +4,13 @@ import page from '../pages/account';
 class AccountSteps extends DefaultSteps {
 	constructor() {
 		super(page);
+		this.urlAccountMail = "https://account.mail.ru"
+		this.baseUrl = "https://cloud.mail.ru/home"
+		this.mailMessageInbox = "https://e.mail.ru/inbox/?afterReload=1"
 	}
 
 	auth() {
-		this.open('https://account.mail.ru');
-		this.waitForAccount();
+		this.open(this.urlAccountMail);
 		this.login();
 	}
 
@@ -17,11 +19,13 @@ class AccountSteps extends DefaultSteps {
 		this.page.next();
 		this.page.fillPasswordForm(process.env.PASSWORD);
 		this.page.submit();
-		this.page.waitForUrl('https://e.mail.ru/inbox/?afterReload=1');
+		this.page.waitForUrl(this.mailMessageInbox);
+		this.open(this.baseUrl);
 	}
 
 	waitForAccount() {
-		this.page.waitForContainer();
+		this.open(this.baseUrl);
+		this.page.waitForUrl(this.baseUrl);
 	}
 }
 
