@@ -1,10 +1,13 @@
 import account from '../steps/account';
 import pin from '../steps/pin';
+import feed from '../steps/feed';
 
-describe('test id', () => {
-	it('Оставить комментарий к пину', () => {
+describe('Проверка пина', () => {
+	beforeEach(() => {
 		account.auth();
-		pin.openPin();
+	});
+	it('Оставить комментарий к пину', () => {
+		feed.openPin();
 		pin.comment('123');
 	});
 });

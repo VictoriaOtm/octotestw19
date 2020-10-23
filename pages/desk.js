@@ -7,45 +7,45 @@ class DeskPage extends DefaultPage {
 
 	get locators() {
 		return {
-			newModal : '[id="addNewModal"]',
-			createDeskModal : '[id="newDeskModal"]',
-			sendDesk : '[id="sendDesk"]',
-			name : '[id="deskName"]',
-			desc : '[id="deskDesc"]',
-			closeInfo : '[id="closeInfo"]'
+			newModalButton : '[id="addNewModal"]',
+			createDeskModalButton : '[id="newDeskModal"]',
+			sendDeskButton : '[id="sendDesk"]',
+			nameInput : '[id="deskName"]',
+			descInput : '[id="deskDesc"]',
+			closeInfoButton : '[id="closeInfo"]'
 		}
 	}
 
 	openNewDesk() {
-		this.page.waitForVisible(this.locators.newModal);
-		this.page.click(this.locators.newModal);
+		this.page.waitForVisible(this.locators.newModalButton);
+		this.page.click(this.locators.newModalButton);
 	}
 
 	createDeskModal() {
-		this.page.click(this.locators.createDeskModal);
-		this.page.waitForVisible(this.locators.sendDesk);
+		this.page.click(this.locators.createDeskModalButton);
+		this.page.waitForVisible(this.locators.sendDeskButton);
 	}
 
 	fillName (name) {
-		this.page.waitForVisible(this.locators.name);
-		this.page.click(this.locators.name);
-		this.page.setValue(this.locators.name, name);
+		this.page.waitForVisible(this.locators.nameInput);
+		this.page.click(this.locators.nameInput);
+		this.page.setValue(this.locators.nameInput, name);
 	}
 
 	fillDesc (desc) {
-		this.page.waitForVisible(this.locators.desc);
-		this.page.click(this.locators.desc);
-		this.page.setValue(this.locators.desc, desc);
+		this.page.waitForVisible(this.locators.descInput);
+		this.page.click(this.locators.descInput);
+		this.page.setValue(this.locators.descInput, desc);
 	}
 
 	closeInfo() {
-		this.page.waitForVisible(this.locators.closeInfo);
-		this.page.click(this.locators.closeInfo);
+		this.page.waitForVisible(this.locators.closeInfoButton);
+		this.page.click(this.locators.closeInfoButton);
 	}
 
 	submit() {
-		this.page.waitForVisible(this.locators.sendDesk);
-		this.page.click(this.locators.sendDesk)
+		this.page.waitForVisible(this.locators.sendDeskButton);
+		this.page.click(this.locators.sendDeskButton)
 	}
 }
 

@@ -1,8 +1,8 @@
 import account from '../steps/account';
 
-describe('test id', () => {
+describe('Авторизация', () => {
 	it('Авторизоваться в сервисе', () => {
-		account.open('https://zinterest.ru');
+		account.open(browser.options.baseUrl);
 		account.login();
 	});
 });

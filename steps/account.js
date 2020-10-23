@@ -7,7 +7,7 @@ class AccountSteps extends DefaultSteps {
 	}
 
 	auth() {
-		this.open('https://zinterest.ru');
+		this.open(browser.options.baseUrl);
 		this.waitForAccount();
 		this.login();
 	}

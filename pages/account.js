@@ -7,11 +7,11 @@ class AccountPage extends DefaultPage {
 
 	get locators() {
 		return {
-			login: 'input[id="loginUser"]',
-			password: 'input[id="passUser"]',
+			loginInput: 'input[id="loginUser"]',
+			passwordInput: 'input[id="passUser"]',
 			submitButton: '[id="sendLogin"]',
 			enterButton: '[id="loginModal"]',
-			closeInfo: '[id="closeInfo"]'
+			closeInfoButton: '[id="closeInfo"]'
 		}
 	}
 
@@ -21,15 +21,15 @@ class AccountPage extends DefaultPage {
 	}
 
 	fillLoginForm (username) {
-		this.page.waitForVisible(this.locators.login);
-		this.page.click(this.locators.login);
-		this.page.setValue(this.locators.login, username);
+		this.page.waitForVisible(this.locators.loginInput);
+		this.page.click(this.locators.loginInput);
+		this.page.setValue(this.locators.loginInput, username);
 	}
 
 	fillPasswordForm (password) {
-		this.page.waitForVisible(this.locators.password);
-		this.page.click(this.locators.password);
-		this.page.setValue(this.locators.password, password);
+		this.page.waitForVisible(this.locators.passwordInput);
+		this.page.click(this.locators.passwordInput);
+		this.page.setValue(this.locators.passwordInput, password);
 	}
 
 	submit() {
@@ -38,10 +38,9 @@ class AccountPage extends DefaultPage {
 	}
 
 	closeLogin() {
-		this.page.waitForVisible(this.locators.closeInfo);
-		this.page.click(this.locators.closeInfo);
+		this.page.waitForVisible(this.locators.closeInfoButton);
+		this.page.click(this.locators.closeInfoButton);
 	}
-
 }
 
 export default new AccountPage();

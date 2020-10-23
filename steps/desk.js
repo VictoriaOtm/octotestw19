@@ -1,8 +1,6 @@
 import DefaultSteps from './default';
 import page from '../pages/desk';
 
-const assert = require('assert').strict;
-
 class DeskSteps extends DefaultSteps {
 	constructor() {
 		super(page);

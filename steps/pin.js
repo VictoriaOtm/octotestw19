@@ -8,12 +8,8 @@ class PinSteps extends DefaultSteps {
 		super(page);
 	}
 
-	openPin() {
-		this.page.openPin();
-		this.waitForPin();
-	}
-
 	comment(comment) {
+		this.waitForPin();
 		this.page.fillComment(comment);
 		this.page.submit();
 		assert(this.page.getLastComment(), comment);
