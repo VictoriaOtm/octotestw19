@@ -3,16 +3,16 @@ import chat from "../../steps/chat";
 
 
 
+// Need global emoji Map: "🍕" -> emojiId_7
 describe('test id', () => {
 
     beforeEach(() => {
         account.auth()
     })
 
-    it('Отправка сообения в службу поддержки', () => {
-
+    it('Отправка emoji в службу поддержки', () => {
         chat.openChat();
-        chat.writeSupMsg("hello");
+        chat.writeSupEmoji("🍕");
     });
 
 });

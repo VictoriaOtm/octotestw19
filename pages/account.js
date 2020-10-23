@@ -8,10 +8,8 @@ class AccountPage extends DefaultPage {
 	get locators() {
 		return {
 			loginBtn: '[id="loginModal"]',
-
 			loginUser: '[id="loginUser"]',
 			pass: '[id="passUser"]',
-
 			submitButton: '[id="sendLogin"]',
 			modalCloseInfo: '[id="closeInfo"]',
 		}
@@ -29,7 +27,6 @@ class AccountPage extends DefaultPage {
 
 
 	}
-
 
 	submit() {
 		this.page.waitForVisible(this.locators.submitButton);

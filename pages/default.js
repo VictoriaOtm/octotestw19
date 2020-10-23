@@ -79,27 +79,4 @@ export default class DefaultPage {
 		return actual.includes(name);
 	}
 
-
-	getCountOfClass(selector, name){
-
-		let attribute;
-
-		if (selector && name) {
-			attribute = browser.getAttribute(selector, 'class');
-		} else if (selector) {
-			// получение из контекста, для chained вызова element.hasClass()
-			attribute = browser.elementIdAttribute(this.lastResult.ELEMENT, 'class').value;
-
-			name = selector;
-		}
-
-		if (!attribute) {
-			throw new Error('Element not found');
-		}
-
-
-		return attribute.length;
-
-	}
-
 }
