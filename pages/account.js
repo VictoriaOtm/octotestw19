@@ -7,33 +7,31 @@ class AccountPage extends DefaultPage {
 
 	get locators() {
 		return {
-			login: 'input[name="username"]',
-			password: 'input[name="password"]',
-			nextButton: '[data-test-id="next-button"]',
-			submitButton: '[data-test-id="submit-button"]',
+			loginBtn: '[id="loginModal"]',
+			loginUser: '[id="loginUser"]',
+			pass: '[id="passUser"]',
+			submitButton: '[id="sendLogin"]',
+			modalCloseInfo: '[id="closeInfo"]',
 		}
 	}
 
-	fillLoginForm (username) {
-		this.page.waitForVisible(this.locators.login);
-		this.page.click(this.locators.login);
-		this.page.setValue(this.locators.login, username);
-	}
+	fillLoginForm (username, pass) {
+		this.page.waitForVisible(this.locators.loginBtn);
+		this.page.click(this.locators.loginBtn);
 
-	fillPasswordForm (password) {
-		this.page.waitForVisible(this.locators.password);
-		this.page.click(this.locators.password);
-		this.page.setValue(this.locators.password, password);
-	}
+		this.page.waitForVisible(this.locators.loginUser);
+		this.page.setValue(this.locators.loginUser, username);
 
-	next() {
-		this.page.waitForVisible(this.locators.nextButton);
-		this.page.click(this.locators.nextButton)
+		this.page.waitForVisible(this.locators.pass);
+		this.page.setValue(this.locators.pass, pass);
+
+
 	}
 
 	submit() {
 		this.page.waitForVisible(this.locators.submitButton);
 		this.page.click(this.locators.submitButton)
+		this.page.waitForVisible(this.locators.modalCloseInfo);
 	}
 
 }
