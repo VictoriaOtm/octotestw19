@@ -1,4 +1,5 @@
 import DefaultPage from './default';
+import { strict as assert } from 'assert';
 
 class OtvetPage extends DefaultPage {
     constructor() {
@@ -8,44 +9,39 @@ class OtvetPage extends DefaultPage {
     get locators() {
         return {
             category: '[bem-id="24"]',
-            ful_list: '[href="/categories/"]',
-            nav_search: '[bem-id="182"]',
-            big_search: '[name="search_value"]',
-            nav_search_but: '[name="clb3917179"]',
+            fullList: '[href="/categories/"]',
+            navSearch: '[bem-id="182"]',
+            bigSearch: '[name="search_value"]',
+            navSearchBut: '[name="clb3917179"]',
             header: 'Все категории проекта'
         }
     }
 
-    click_category_button() {
+    ClickCategoryButton() {
         this.page.waitForVisible(this.locators.category);
         this.page.click(this.locators.category);
     }
 
-    click_category_list() {
-        this.page.waitForVisible(this.locators.ful_list);
-        this.page.click(this.locators.ful_list);
+    ClickCategoryList() {
+        this.page.waitForVisible(this.locators.fullList);
+        this.page.click(this.locators.fullList);
         var header_text = $('h1').getText();
-        if (header_text !== this.locators.header) {
-            console.log(header_text)
-            throw new Error("you lose");
-        }
+        assert.equal(header_text,this.locators.header);
     }
 
-    input_search(text) {
-        this.page.waitForVisible(this.locators.nav_search);
-        this.page.click(this.locators.nav_search);
-        this.page.setValue(this.locators.nav_search, text);
-        this.page.click(this.locators.nav_search_but);
-        this.page.waitForVisible(this.locators.big_search)
+    inputSearch(text) {
+        this.page.waitForVisible(this.locators.navSearch);
+        this.page.click(this.locators.navSearch);
+        this.page.setValue(this.locators.navSearch, text);
+        this.page.click(this.locators.navSearchBut);
+        this.page.waitForVisible(this.locators.bigSearch)
     }
 
-    get_search(search_text) {
-        this.page.waitForVisible(this.locators.big_search)
-        var search_value = $('[name="search_value"]').getValue();
-        if (search_text !== search_value) {
-            console.log(search_value)
-            throw new Error("you lose");
-        }
+    getSearch(searchText) {
+
+        this.page.waitForVisible(this.locators.bigSearch)
+        var searchValue = $('[name="search_value"]').getValue();
+        assert.equal(searchText, searchValue);
     }
 
 }

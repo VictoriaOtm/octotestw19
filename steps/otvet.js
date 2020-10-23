@@ -9,18 +9,18 @@ class OtvetSteps extends DefaultSteps {
     // }
 
 
-    open_otvet() {
+    OpenOtvet() {
         this.open('https://otvet.mail.ru');
     }
 
-    go_to_category_list() {
-        page.click_category_button()
-        page.click_category_list()
+    GoToCategoryList() {
+        page.ClickCategoryButton()
+        page.ClickCategoryList()
     }
 
-    fill_search() {
-        page.input_search(search_text);
-        page.get_search(search_text);
+    FillSearch() {
+        page.inputSearch(search_text);
+        page.getSearch(search_text);
     }
 }
 
