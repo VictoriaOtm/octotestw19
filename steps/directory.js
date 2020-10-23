@@ -20,15 +20,15 @@ class DirectorySteps extends DefaultSteps {
         this.openAndWaitForUrl(url)
     }
 
+    deleteCurrentSubDirectoryAndDirectory () {
+        this.page.deleteCurrentDirectory()
+        this.page.deleteCurrentDirectory()
+    }
+
     createDirectoryAndGoTo(dirName) {
         this.page.createDirectory(dirName)
         this.openAndWaitForUrl("https://cloud.mail.ru/home")
         this.goToDirectory(dirName)
-        this.page.deleteCurrentDirectory()
-    }
-
-    deleteCurrentSubDirectoryAndDirectory () {
-        this.page.deleteCurrentDirectory()
         this.page.deleteCurrentDirectory()
     }
 
@@ -41,8 +41,8 @@ class DirectorySteps extends DefaultSteps {
         this.goToDirectory(firstDirName)
         this.goToSubDirectory(firstDirName, secondDirName)
         this.deleteCurrentSubDirectoryAndDirectory()
-
     }
+
 }
 
 export default new DirectorySteps();
