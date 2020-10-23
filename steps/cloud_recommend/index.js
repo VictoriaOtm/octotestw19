@@ -7,8 +7,8 @@ class CloudRecommendationsSteps extends DefaultSteps {
     }
 
     openCloudRecommendations() {
-        this.open("https://cloud.mail.ru/recommend/");
-        this.page.waitForUrl("https://cloud.mail.ru/recommend/");
+        this.open(this.page.cloudRecomendationsUrl);
+        this.page.waitForUrl(this.page.cloudRecomendationsUrl);
     }
     
     checkDiskO() {

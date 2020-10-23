@@ -25,6 +25,14 @@ class CloudRecommendationPage extends DefaultPage {
         return '/recommend/';
     }
 
+    get cloudUrl() {
+        return "https://cloud.mail.ru/";
+    }
+
+    get cloudRecomendationsUrl() {
+        return `${this.cloudUrl}recommend/`;
+    }
+
     _clickWaitCheck(locator, url) {
         const recommendationsPage = this.page.getCurrentTabId();
 
