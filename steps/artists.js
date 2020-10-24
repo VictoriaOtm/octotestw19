@@ -13,11 +13,6 @@ class ArtistsSteps extends DefaultSteps {
 	clickArtistName () {
 		this.page.clickArtistName();
 	}
-
-	clickAlbums() {
-		this.page.clickAlbums();
-		this.page.waitForAlbumsList();
-	}
 }
 
 export default new ArtistsSteps();

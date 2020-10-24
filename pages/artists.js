@@ -9,22 +9,12 @@ class ArtistsPage extends DefaultPage {
 		return {
 			container: this.container,
 			firstTrackArtistName: '.l-track-list .m-obscure-title.m-tiny-ref.m-small-text.is-underlined-ref',
-			albumsList: '#artist-albums',
 		}
 	}
 
 	clickArtistName() {
 		this.page.waitForVisible(this.locators.firstTrackArtistName);
 		this.page.click(this.locators.firstTrackArtistName);
-	}
-
-	clickAlbums () {
-		this.page.waitForVisible(this.locators.albumsList);
-		this.page.click(this.locators.albumsList);
-	}
-
-	waitForAlbumsList() {
-		this.page.waitForVisible(this.locators.albumsList);
 	}
 }
 
