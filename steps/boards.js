@@ -8,7 +8,7 @@ class BoardsSteps extends DefaultSteps {
 	}
 
 	createBoard(boardName) {
-		this.open('https://drello.works/boards');
+		this.open(`${process.env.DRELLO_URL}/boards`);
 		this.page.waitForContainer()
 
 		this.page.openCreateBoardForm();
@@ -19,7 +19,7 @@ class BoardsSteps extends DefaultSteps {
 	}
 
 	openBoard(boardName) {
-		this.open('https://drello.works/boards');
+		this.open(`${process.env.DRELLO_URL}/boards`);
 		this.page.waitForContainer();
 		this.page.openBoard(boardName);
 
@@ -27,7 +27,7 @@ class BoardsSteps extends DefaultSteps {
 	}
 
 	deleteBoard(boardName) {
-		this.open('https://drello.works/boards');
+		this.open(`${process.env.DRELLO_URL}/boards`);
 		this.page.waitForContainer();
 		this.page.openBoard(boardName);
 

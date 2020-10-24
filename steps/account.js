@@ -7,7 +7,7 @@ class AccountSteps extends DefaultSteps {
 	}
 
 	auth() {
-		this.open('https://drello.works/login');
+		this.open(`${process.env.DRELLO_URL}/login`);
 		this.waitForAccount();
 		this.login();
 	}
@@ -16,7 +16,7 @@ class AccountSteps extends DefaultSteps {
 		this.page.fillLoginForm(process.env.LOGIN);
 		this.page.fillPasswordForm(process.env.PASSWORD);
 		this.page.submit();
-		this.page.waitForUrl('https://drello.works/');
+		this.page.waitForUrl(process.env.DRELLO_URL);
 	}
 
 	waitForAccount() {
