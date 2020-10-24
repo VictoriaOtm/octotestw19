@@ -2,15 +2,15 @@ import DefaultPage from './default';
 
 class AccountPage extends DefaultPage {
 	constructor() {
-		super('account', '[data-test-id=login-app-read]')
+		super('account', '[class=auth-form-login]')
 	}
 
 	get locators() {
 		return {
-			login: 'input[name="username"]',
-			password: 'input[name="password"]',
-			nextButton: '[data-test-id="next-button"]',
-			submitButton: '[data-test-id="submit-button"]',
+			login: 'input[id="inputLogin"]',
+			password: 'input[id="inputPassword"]',
+			submitButton: 'div[id="submit_button"]',
+			openSettingsButton: 'img[id="submitSettings"]',
 		}
 	}
 
@@ -26,14 +26,14 @@ class AccountPage extends DefaultPage {
 		this.page.setValue(this.locators.password, password);
 	}
 
-	next() {
-		this.page.waitForVisible(this.locators.nextButton);
-		this.page.click(this.locators.nextButton)
-	}
-
 	submit() {
 		this.page.waitForVisible(this.locators.submitButton);
 		this.page.click(this.locators.submitButton)
+	}
+
+	openSettings() {
+		this.page.waitForVisible(this.locators.openSettingsButton);
+		this.page.click(this.locators.openSettingsButton);
 	}
 
 }

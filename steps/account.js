@@ -7,21 +7,24 @@ class AccountSteps extends DefaultSteps {
 	}
 
 	auth() {
-		this.open('https://account.mail.ru');
+		this.open(`${process.env.DRELLO_URL}/login`);
 		this.waitForAccount();
 		this.login();
 	}
 
 	login() {
 		this.page.fillLoginForm(process.env.LOGIN);
-		this.page.next();
 		this.page.fillPasswordForm(process.env.PASSWORD);
 		this.page.submit();
-		this.page.waitForUrl('https://e.mail.ru/inbox/?afterReload=1');
+		this.page.waitForUrl(process.env.DRELLO_URL);
 	}
 
 	waitForAccount() {
 		this.page.waitForContainer();
+	}
+
+	openSettings() {
+		this.page.openSettings()
 	}
 }
 
