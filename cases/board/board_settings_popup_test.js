@@ -2,8 +2,7 @@ import account from '../../steps/account';
 import board from "../../steps/board";
 import boards from "../../steps/boards";
 
-// пример теста
-describe('board test', () => {
+describe('board test settings popup', () => {
 	const boardName = "TEST BOARD";
 
 	beforeEach(()=>{
@@ -21,9 +20,5 @@ describe('board test', () => {
 
 	it('Открыть попап настроек доски', () => {
 		board.openBoardSettingsPopup();
-	});
-
-	it('Открыть попап добавления пользователя', () => {
-		board.openAddNewUsersPopup();
 	});
 });
