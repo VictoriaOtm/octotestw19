@@ -35,6 +35,10 @@ class AlbumsPage extends DefaultPage {
 
 	waitForNotification() {
 		this.page.waitForVisible(this.locators.successNotification);
+		assert.equal(
+			$(this.locators.successNotification).getText(),
+			'Альбом отмечен как понравившийся'
+		);
 	}
 
 	waitForLikeClicked() {
