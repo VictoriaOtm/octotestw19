@@ -7,7 +7,7 @@ class AuthorizationSteps extends DefaultSteps {
 	}
 
 	auth() {
-		this.open('https://drello.works/login');
+		this.open(process.env.PROJECT_PATH + '/login');
 		this.waitForAuthorization();
 		this.login();
 	}
@@ -16,7 +16,7 @@ class AuthorizationSteps extends DefaultSteps {
 		this.page.fillLoginForm(process.env.AUTH_LOGIN);
 		this.page.fillPasswordForm(process.env.AUTH_PASSWORD);
 		this.page.submit();
-		this.page.waitForUrl('https://drello.works');
+		this.page.waitForUrl(process.env.PROJECT_PATH);
 	}
 
 	waitForAuthorization() {

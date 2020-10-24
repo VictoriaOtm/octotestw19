@@ -1,13 +1,13 @@
 import DefaultSteps from './default';
 import page from '../pages/registration';
 
-class RegistrationPage extends DefaultSteps {
+class RegistrationSteps extends DefaultSteps {
 	constructor() {
 		super(page);
 	}
 
 	join() {
-		this.open('https://drello.works/join');
+		this.open(process.env.PROJECT_PATH + '/join');
 		this.waitForRegistration();
 		this.registration();
 	}
@@ -19,7 +19,7 @@ class RegistrationPage extends DefaultSteps {
 		this.page.fillPasswordForm(process.env.REG_PASSWORD);
 		this.page.fillRepeatPasswordForm(process.env.REG_PASSWORD);
 		this.page.submit();
-		this.page.waitForUrl('https://drello.works');
+		this.page.waitForUrl(process.env.PROJECT_PATH);
 	}
 
 	waitForRegistration() {
@@ -27,4 +27,4 @@ class RegistrationPage extends DefaultSteps {
 	}
 }
 
-export default new RegistrationPage();
+export default new RegistrationSteps();

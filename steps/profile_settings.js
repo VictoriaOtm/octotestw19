@@ -1,13 +1,13 @@
 import DefaultSteps from './default';
 import page from '../pages/profile_settings';
 
-class ProfileSettingsPage extends DefaultSteps {
+class ProfileSettingsSteps extends DefaultSteps {
 	constructor() {
 		super(page);
 	}
 
 	changeName(name) {
-		this.open('https://drello.works/profile');
+		this.open(process.env.PROJECT_PATH + '/profile');
 		this.waitForProfileSettings();
 
 		this.page.fillNameForm(name);
@@ -19,7 +19,7 @@ class ProfileSettingsPage extends DefaultSteps {
 	}
 
 	changeSurname(surname) {
-		this.open('https://drello.works/profile');
+		this.open(process.env.PROJECT_PATH + '/profile');
 		this.waitForProfileSettings();
 
 		this.page.fillSurnameForm(surname);
@@ -35,4 +35,4 @@ class ProfileSettingsPage extends DefaultSteps {
 	}
 }
 
-export default new ProfileSettingsPage();
+export default new ProfileSettingsSteps();
