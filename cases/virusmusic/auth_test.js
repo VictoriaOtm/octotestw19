@@ -1,8 +1,9 @@
-import vmaccount from "../../steps/vm_account";
+import account from "../../steps/account";
 
 
 describe('auth test', () => {
     it('Авторизоваться в сервисе', () => {
-        vmaccount.auth();
+        account.auth();
+        account.checkLogin();
     });
 });

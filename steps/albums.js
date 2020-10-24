@@ -1,13 +1,14 @@
-import DefaultSteps from '../default';
-import page from '../../pages/albums';
+import DefaultSteps from './default';
+import page from '../pages/albums';
 
 class AlbumsSteps extends DefaultSteps {
 	constructor() {
 		super(page);
 	}
 
-	waitForSelf() {
+	waitForAlbumPage() {
 		this.page.waitForContainer();
+		this.page.waitForAlbumsPage();
 	}
 
 	clickLike() {

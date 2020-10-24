@@ -1,4 +1,4 @@
-import DefaultPage from '../default';
+import DefaultPage from './default';
 
 class ArtistsPage extends DefaultPage {
 	constructor() {
@@ -8,12 +8,8 @@ class ArtistsPage extends DefaultPage {
 	get locators () {
 		return {
 			container: this.container,
-			trackList: '.l-track-list',
 			firstTrackArtistName: '.l-track-list .m-obscure-title.m-tiny-ref.m-small-text.is-underlined-ref',
-			albums: '#profile-albums-title',
 			albumsList: '#artist-albums',
-			firstAlbum: '.l-list-card',
-			successNotification: '.m-pop-up-message',
 		}
 	}
 

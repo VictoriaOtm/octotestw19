@@ -1,5 +1,5 @@
-import DefaultSteps from '../default';
-import page from '../../pages/artists';
+import DefaultSteps from './default';
+import page from '../pages/artists';
 
 class ArtistsSteps extends DefaultSteps {
 	constructor() {

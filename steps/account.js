@@ -1,5 +1,8 @@
 import DefaultSteps from './default';
 import page from '../pages/account';
+import {endHref, mainURL} from "../store";
+
+let assert = require("assert");
 
 class AccountSteps extends DefaultSteps {
 	constructor() {
@@ -7,21 +10,24 @@ class AccountSteps extends DefaultSteps {
 	}
 
 	auth() {
-		this.open('https://account.mail.ru');
-		this.waitForAccount();
+		this.open(mainURL+endHref.login);
+		this.page.waitForContainer();
 		this.login();
 	}
 
 	login() {
 		this.page.fillLoginForm(process.env.LOGIN);
-		this.page.next();
 		this.page.fillPasswordForm(process.env.PASSWORD);
 		this.page.submit();
-		this.page.waitForUrl('https://e.mail.ru/inbox/?afterReload=1');
+		this.page.waitForUrl(mainURL);
 	}
 
-	waitForAccount() {
-		this.page.waitForContainer();
+	checkLogin() {
+		this.page.isLogoutVisible();
+		assert.equal(
+			$(this.page.locators.navName).getText(),
+			process.env.LOGIN
+		);
 	}
 }
 

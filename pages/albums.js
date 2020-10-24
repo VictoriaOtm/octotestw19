@@ -1,4 +1,7 @@
-import DefaultPage from '../default';
+import DefaultPage from './default';
+import {mainURL} from "../store";
+
+let assert = require('assert');
 
 class AlbumsPage extends DefaultPage {
 	constructor() {
@@ -9,13 +12,10 @@ class AlbumsPage extends DefaultPage {
 		return {
 			container: this.container,
 			likeButton: '.m-large-like-button',
-			likeButtonCLicked: '.m-large-like-button.is-liked',
-			trackList: '.l-track-list',
-			firstTrack: '.l-track-big',
-			albums: '#profile-albums-title',
-			albumsList: '#artist-albums',
+			likeButtonClicked: '.m-large-like-button.is-liked',
 			firstAlbum: '.l-list-card',
 			successNotification: '.m-pop-up-message',
+			avatar: '#avatar',
 		}
 	}
 
@@ -38,7 +38,15 @@ class AlbumsPage extends DefaultPage {
 	}
 
 	waitForLikeClicked() {
-		this.page.waitForVisible(this.locators.likeButtonCLicked);
+		this.page.waitForVisible(this.locators.likeButtonClicked);
+	}
+
+	waitForAlbumsPage() {
+		this.page.waitForVisible(this.locators.likeButton);
+		assert.equal(
+			$(this.locators.avatar).getAttribute('src'),
+			mainURL+'/static/img/album/best-hits.jpg'
+		);
 	}
 }
 
