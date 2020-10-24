@@ -1,14 +1,7 @@
 import DefaultSteps from "./default";
 import page from "../pages/otvet";
 
-const SEARCH_TEXT = "TEXT";
-
 class OtvetSteps extends DefaultSteps {
-    // constructor() {
-    //     super(page);
-    // }
-
-
     OpenOtvet() {
         this.open('https://otvet.mail.ru');
     }
@@ -18,9 +11,9 @@ class OtvetSteps extends DefaultSteps {
         page.ClickCategoryList()
     }
 
-    FillSearch() {
-        page.inputSearch(SEARCH_TEXT);
-        page.getSearch(SEARCH_TEXT);
+    FillSearch(searchText) {
+        page.inputSearch(searchText);
+        page.getSearch(searchText);
     }
 }
 

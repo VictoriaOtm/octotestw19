@@ -1,11 +1,9 @@
 import DefaultPage from './default';
 import {strict as assert} from 'assert';
 
-class OtvetPage extends DefaultPage {
-    constructor() {
-        super('account', '[data-test-id=login-app-read]')
-    }
+const HEADER = 'Все категории проекта';
 
+class OtvetPage extends DefaultPage {
     get locators() {
         return {
             category: '[bem-id="24"]',
@@ -13,7 +11,7 @@ class OtvetPage extends DefaultPage {
             navSearch: '[bem-id="182"]',
             bigSearch: '[name="search_value"]',
             navSearchBut: '[name="clb3917179"]',
-            header: 'Все категории проекта'
+            headerLAbel: 'h1',
         }
     }
 
@@ -25,8 +23,8 @@ class OtvetPage extends DefaultPage {
     ClickCategoryList() {
         this.page.waitForVisible(this.locators.fullList);
         this.page.click(this.locators.fullList);
-        let header_text = $('h1').getText();
-        assert.equal(header_text, this.locators.header);
+        const headerText = $(this.locators.headerLAbel).getText();
+        assert.equal(headerText, HEADER);
     }
 
     inputSearch(text) {
@@ -40,7 +38,7 @@ class OtvetPage extends DefaultPage {
     getSearch(searchText) {
 
         this.page.waitForVisible(this.locators.bigSearch)
-        var searchValue = $('[name="search_value"]').getValue();
+        const searchValue = $(this.locators.bigSearch).getValue();
         assert.equal(searchText, searchValue);
     }
 

@@ -1,14 +1,10 @@
 import OtvetSteps from '../../steps/otvet';
 
+const SEARCH_TEXT = "TEXT";
 
-describe('test Otvet', () => {
-    it('Открыть ответы,перейти в список категорий', () => {
-        OtvetSteps.OpenOtvet();
-        OtvetSteps.GoToCategoryList();
-    });
-
+describe('test Otvet search', () => {
     it('Открыть ответы,перейти в поиск и сравнить текста в разных инпутах поиска', () => {
         OtvetSteps.OpenOtvet();
-        OtvetSteps.FillSearch();
+        OtvetSteps.FillSearch(SEARCH_TEXT);
     });
 });
