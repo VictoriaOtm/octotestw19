@@ -2,7 +2,7 @@ import account from '../../steps/account';
 import board from "../../steps/board";
 import boards from "../../steps/boards";
 
-describe('board test add new users popup', () => {
+describe('board', () => {
     const boardName = "TEST BOARD";
 
     beforeEach(()=>{

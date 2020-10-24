@@ -1,6 +1,6 @@
 import account from '../../steps/account';
 
-describe('test id', () => {
+describe('login', () => {
 
 	it('Авторизоваться и открыть настройки профиля', () => {
 		account.auth();
