@@ -6,17 +6,17 @@ class AddContactSteps extends DefaultSteps {
     super(page);
   }
 
-  addCorrect() {
+  addCorrect(firstName, lastName, nickname, company, email) {
     this.page.add();
-    this.page.fillAddForm("Имя", "Фамилия", "nickname", "Компания", "pochta@mail.ru");
+    this.page.fillAddForm(firstName, lastName, nickname, company, email);
     this.page.save();
     this.page.return();
     this.page.waitCreate();
   }
 
-  addWithWrongEmail() {
+  addWithWrongEmail(firstName, lastName, nickname, company, email) {
     this.page.add();
-    this.page.fillAddForm("Имя", "Фамилия", "nickname", "Компания", "pochta");
+    this.page.fillAddForm(firstName, lastName, nickname, company, email);
     this.page.save();
     this.page.waitEmailError();
   }

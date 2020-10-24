@@ -1,5 +1,6 @@
 import account from '../steps/account';
 import contact from '../steps/contact';
+import {testData} from "./testData";
 
 describe('add contact', () => {
 
@@ -10,16 +11,7 @@ describe('add contact', () => {
 
   it('add correct contact', () => {
     contact.open('https://contacts.mail.ru');
-    contact.addCorrect();
+    console.log('!!!' + testData.firstName);
+    contact.addCorrect(testData.firstName, testData.lastName, testData.nickname, testData.company, testData.email);
   });
-
-  it('add contact with incorrect email', () => {
-    contact.open('https://contacts.mail.ru');
-    contact.addWithWrongEmail();
-  })
-
-  it('add contact with no fields', () => {
-    contact.open('https://contacts.mail.ru');
-    contact.addEmpty();
-  })
 });

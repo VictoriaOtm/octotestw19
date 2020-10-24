@@ -26,26 +26,18 @@ class AddContactPage extends DefaultPage {
     this.page.click(this.locators.addButton);
   }
 
+  setInputValue(locator, value) {
+    this.page.waitForVisible(locator);
+    this.page.click(locator);
+    this.page.setValue(locator, value);
+  }
+
   fillAddForm(firstName, lastName, nickname, company, email) {
-    this.page.waitForVisible(this.locators.firstName);
-    this.page.click(this.locators.firstName);
-    this.page.setValue(this.locators.firstName, firstName);
-
-    this.page.waitForVisible(this.locators.lastName);
-    this.page.click(this.locators.lastName);
-    this.page.setValue(this.locators.lastName, lastName);
-
-    this.page.waitForVisible(this.locators.nickname);
-    this.page.click(this.locators.nickname);
-    this.page.setValue(this.locators.nickname, nickname);
-
-    this.page.waitForVisible(this.locators.company);
-    this.page.click(this.locators.company);
-    this.page.setValue(this.locators.company, company);
-
-    this.page.waitForVisible(this.locators.email);
-    this.page.click(this.locators.email);
-    this.page.setValue(this.locators.email, email);
+    this.setInputValue(this.locators.firstName, firstName);
+    this.setInputValue(this.locators.lastName, lastName);
+    this.setInputValue(this.locators.nickname, nickname);
+    this.setInputValue(this.locators.company, company);
+    this.setInputValue(this.locators.email, email);
   }
 
   save() {
