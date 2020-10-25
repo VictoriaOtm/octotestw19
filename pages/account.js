@@ -2,40 +2,34 @@ import DefaultPage from './default';
 
 class AccountPage extends DefaultPage {
 	constructor() {
-		super('account', '[data-test-id=login-app-read]')
+		super('account', 'form.l-form.l-card')
 	}
 
 	get locators() {
 		return {
-			login: 'input[name="username"]',
-			password: 'input[name="password"]',
-			nextButton: '[data-test-id="next-button"]',
-			submitButton: '[data-test-id="submit-button"]',
+			login: '#login',
+			password: '#password',
+			submitButton: '#submit-login',
+			loginInNavbar: '.m-navbar-name',
 		}
 	}
 
-	fillLoginForm (username) {
+	fillLoginForm(username) {
 		this.page.waitForVisible(this.locators.login);
 		this.page.click(this.locators.login);
 		this.page.setValue(this.locators.login, username);
 	}
 
-	fillPasswordForm (password) {
+	fillPasswordForm(password) {
 		this.page.waitForVisible(this.locators.password);
 		this.page.click(this.locators.password);
 		this.page.setValue(this.locators.password, password);
 	}
 
-	next() {
-		this.page.waitForVisible(this.locators.nextButton);
-		this.page.click(this.locators.nextButton)
-	}
-
 	submit() {
 		this.page.waitForVisible(this.locators.submitButton);
-		this.page.click(this.locators.submitButton)
+		this.page.click(this.locators.submitButton);
 	}
-
 }
 
 export default new AccountPage();
