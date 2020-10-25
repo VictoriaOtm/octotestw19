@@ -1,7 +1,7 @@
 import DefaultSteps from './default';
 import page from '../pages/account';
-
-const assert = require('assert');
+import { url } from '../store/index';
+import assert from 'assert';
 
 class AccountSteps extends DefaultSteps {
 	constructor() {
@@ -9,7 +9,7 @@ class AccountSteps extends DefaultSteps {
 	}
 
 	auth() {
-		this.open('https://virusmusic.fun/login');
+		this.open(url.login);
 		this.waitForAccount();
 		this.login();
 	}
@@ -18,7 +18,7 @@ class AccountSteps extends DefaultSteps {
 		this.page.fillLoginForm(process.env.LOGIN);
 		this.page.fillPasswordForm(process.env.PASSWORD);
 		this.page.submit();
-		this.page.waitForUrl('https://virusmusic.fun');
+		this.page.waitForUrl(url.main);
 	}
 
 	waitForAccount() {
@@ -29,6 +29,7 @@ class AccountSteps extends DefaultSteps {
 		assert.equal(
 			$(this.page.locators.loginInNavbar).getText(),
 			process.env.LOGIN);
+		assert.equal($('.m-medium-icon').getAttribute('alt'), 'logo');
 	}
 }
 

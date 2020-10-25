@@ -28,7 +28,7 @@ class SettingsPage extends DefaultPage {
 
 	submit() {
 		this.page.waitForVisible(this.locators.submitDataButton);
-		this.page.click(this.locators.submitDataButton)
+		this.page.click(this.locators.submitDataButton);
 	}
 
 	refresh() {

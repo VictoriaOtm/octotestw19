@@ -28,7 +28,7 @@ class AccountPage extends DefaultPage {
 
 	submit() {
 		this.page.waitForVisible(this.locators.submitButton);
-		this.page.click(this.locators.submitButton)
+		this.page.click(this.locators.submitButton);
 	}
 }
 

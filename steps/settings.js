@@ -1,7 +1,7 @@
 import DefaultSteps from './default';
 import page from '../pages/settings';
-
-const assert = require('assert');
+import { url } from '../store/index';
+import assert from 'assert';
 
 class SettingsSteps extends DefaultSteps {
 	constructor() {
@@ -9,7 +9,7 @@ class SettingsSteps extends DefaultSteps {
 	}
 
 	changeName(name) {
-		this.open('https://virusmusic.fun/settings');
+		this.open(url.settings);
 		this.page.fillNameInput(name);
 		this.page.submit();
 		this.page.waitForPopUp();
@@ -22,7 +22,7 @@ class SettingsSteps extends DefaultSteps {
 	}
 
 	changeEmail(email) {
-		this.open('https://virusmusic.fun/settings');
+		this.open(url.settings);
 		this.page.fillEmailInput(email);
 		this.page.submit();
 		this.page.waitForPopUp();
