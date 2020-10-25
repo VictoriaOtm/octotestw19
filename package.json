@@ -4,7 +4,7 @@
   "description": "e2e tests for octavius",
   "main": "index.js",
   "scripts": {
-    "test": "wdio --baseUrl='http://virusmusic.fun'",
+    "test": "wdio --baseUrl='https://virusmusic.fun'",
     "report": "mkdir -p ./cache/allure-report && allure generate -c -o ./cache/allure-report ./cache/allure-results && allure open ./cache/allure-report"
   },
   "author": "",

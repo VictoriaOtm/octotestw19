@@ -1,6 +1,6 @@
 import DefaultPage from "./default";
 
-class authPage extends DefaultPage {
+class AuthPage extends DefaultPage {
     constructor() {
         super('auth', '[data-test-id=login-app-read]')
     }
@@ -31,4 +31,4 @@ class authPage extends DefaultPage {
     }
 }
 
-export default new authPage();
+export default new AuthPage();

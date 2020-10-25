@@ -1,5 +1,6 @@
 import DefaultPage from "./default";
 
+
 class MainPage extends DefaultPage {
     constructor() {
         super('main', '[data-test-id=main-app-read]')
@@ -9,9 +10,8 @@ class MainPage extends DefaultPage {
         return {
             track: '[class="m-track-image"]',
             trigger: '[class*="trigger-button"]',
+            player: '[class="l-player l-player-visible"]',
             pause: '[src="/static/img/icons/pause.svg"]',
-            play: '[src="/static/img/icons/play.svg"]',
-            playPauseButton: '[alt="play/pause"]',
         }
     }
 
@@ -20,27 +20,16 @@ class MainPage extends DefaultPage {
         this.page.click(this.locators.track);
     }
 
-    wrapPlayer() {
-        this.page.waitForVisible(this.locators.trigger);
-        this.page.click(this.locators.trigger);
-    }
-
     containsPause() {
         this.page.waitForVisible(this.locators.pause);
     }
 
-    pauseTrack() {
-        this.page.waitForVisible(this.locators.pause);
-        this.page.click(this.locators.pause);
-    }
-
-    containsPlay() {
-        this.page.waitForVisible(this.locators.play);
-    }
-
     unwrapPlayer() {
         this.page.waitForVisible(this.locators.trigger);
+        const before = $(this.locators.player).getAttribute('style');
         this.page.click(this.locators.trigger);
+        const after =  $(this.locators.player).getAttribute('style');
+        return before, after;
     }
 }
 

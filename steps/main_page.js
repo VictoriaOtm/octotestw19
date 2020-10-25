@@ -1,20 +1,23 @@
 import DefaultSteps from "./default";
-import MainPage from "../pages/main_page";
+import mainPage from "../pages/main_page";
 
-class mainPageSteps extends DefaultSteps {
+const assert = require('assert');
+
+class MainPageSteps extends DefaultSteps {
     constructor() {
-        super(MainPage);
+        super(mainPage);
     }
 
     playTrack() {
         this.page.playTrack()
-        this.page.waitForUrl('https://virusmusic.fun/');
         this.page.containsPause();
     }
 
     unwrapPlayer() {
-        this.page.unwrapPlayer();
+        before, after = this.page.unwrapPlayer();
+        // player wrapped
+        assert.equal(before != after, true);
     }
 }
 
-export default new mainPageSteps();
+export default new MainPageSteps();
