@@ -25,7 +25,7 @@ class MainPage extends DefaultPage {
     }
 
     getPlayerPos(){
-        this.page.waitForVisible(this.locators.trigger);
+        this.page.waitForVisible(this.locators.player);
         return $(this.locators.player).getAttribute('style');
     }
 
