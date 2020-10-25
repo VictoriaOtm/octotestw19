@@ -1,7 +1,6 @@
 import DefaultPage from './default';
 import {mainURL} from "../store";
-
-let assert = require('assert');
+import assert from 'assert';
 
 class AlbumsPage extends DefaultPage {
 	constructor() {
