@@ -1,7 +1,7 @@
 import DefaultSteps from "./default";
 import mainPage from "../pages/main_page";
 
-const assert = require('assert');
+import assert from "assert";
 
 class MainPageSteps extends DefaultSteps {
     constructor() {
