@@ -1,5 +1,11 @@
 export const foldersHref = {
-	inbox: '/inbox/',
-	sent: '/sent/',
-	drafts: '/drafts/',
+	artist: '/artist/',
 };
+
+export const endHref = {
+	albums: '/albums',
+	tracks: '/tracks',
+	login: '/login',
+}
+
+export const mainURL = 'https://virusmusic.fun';
