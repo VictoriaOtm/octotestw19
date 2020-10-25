@@ -24,12 +24,14 @@ class MainPage extends DefaultPage {
         this.page.waitForVisible(this.locators.pause);
     }
 
+    getPlayerPos(){
+        this.page.waitForVisible(this.locators.trigger);
+        return $(this.locators.player).getAttribute('style');
+    }
+
     unwrapPlayer() {
         this.page.waitForVisible(this.locators.trigger);
-        const before = $(this.locators.player).getAttribute('style');
         this.page.click(this.locators.trigger);
-        const after =  $(this.locators.player).getAttribute('style');
-        return before, after;
     }
 }
 

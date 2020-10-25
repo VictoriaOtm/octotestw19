@@ -14,9 +14,11 @@ class MainPageSteps extends DefaultSteps {
     }
 
     unwrapPlayer() {
-        before, after = this.page.unwrapPlayer();
+        const before = this.page.getPlayerPos();
+        this.page.unwrapPlayer();
+        const after = this.page.getPlayerPos();
         // player wrapped
-        assert.notEqual(before, after);
+       assert.notEqual(before, after);
     }
 }
 
