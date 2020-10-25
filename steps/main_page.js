@@ -16,7 +16,7 @@ class MainPageSteps extends DefaultSteps {
     unwrapPlayer() {
         before, after = this.page.unwrapPlayer();
         // player wrapped
-        assert.equal(before != after, true);
+        assert.notEqual(before, after);
     }
 }
 
