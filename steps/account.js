@@ -29,7 +29,6 @@ class AccountSteps extends DefaultSteps {
 		assert.equal(
 			$(this.page.locators.loginInNavbar).getText(),
 			process.env.LOGIN);
-		assert.equal($('.m-medium-icon').getAttribute('alt'), 'logo');
 	}
 }
 
