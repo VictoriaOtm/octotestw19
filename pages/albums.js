@@ -1,6 +1,7 @@
+import assert from 'assert';
+
 import DefaultPage from './default';
 import {mainURL} from "../store";
-import assert from 'assert';
 
 class AlbumsPage extends DefaultPage {
 	constructor() {
@@ -48,7 +49,7 @@ class AlbumsPage extends DefaultPage {
 		this.page.waitForVisible(this.locators.likeButton);
 		assert.equal(
 			$(this.locators.avatar).getAttribute('src'),
-			mainURL+'/static/img/album/best-hits.jpg'
+			`${mainURL}/static/img/album/best-hits.jpg`
 		);
 	}
 }

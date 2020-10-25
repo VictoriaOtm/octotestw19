@@ -1,8 +1,8 @@
+import assert from 'assert';
+
 import DefaultSteps from './default';
 import page from '../pages/account';
 import {endHref, mainURL} from "../store";
-
-let assert = require("assert");
 
 class AccountSteps extends DefaultSteps {
 	constructor() {
